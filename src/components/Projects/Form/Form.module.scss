@@ -1,0 +1,18 @@
+$bd: 1px solid black;
+
+.formWrap {
+  border: $bd;
+  padding: 1rem;
+  width: 30%;
+  height: 30vh;
+  overflow: hidden;
+  h2 {
+    text-align: center;
+    margin-top: 2rem;
+    background-color: thistle;
+    max-width: 100%;
+  }
+}
+form {
+  border: $bd;
+}

@@ -1,0 +1,43 @@
+.control {
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 15%;
+  height: 300px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  p {
+    color: white;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    transition: color 100ms ease-in-out;
+    cursor: pointer;
+    padding: 0 5px;
+    &:hover {
+      color: rgba(238, 223, 223, 0.712);
+    }
+
+    span {
+      color: rgb(19, 83, 83);
+    }
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  .control {
+    width: 40%;
+    height: 35vh;
+    h2 {
+      font-size: 0.8rem;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.formWrap {
+  border: 1px solid black;
+  padding: 1rem;
+  width: 30%;
+  height: 30vh;
+}
+
+.formWrap h2 {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+form {
+  border: 1px solid black;
+}
+/*# sourceMappingURL=Form.module.css.map */

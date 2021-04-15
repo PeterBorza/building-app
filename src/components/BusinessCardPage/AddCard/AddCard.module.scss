@@ -1,0 +1,14 @@
+.container {
+  border: 1px solid black;
+  width: 50%;
+  height: 50vh;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  ul {
+    li {
+      list-style: none;
+    }
+  }
+}
