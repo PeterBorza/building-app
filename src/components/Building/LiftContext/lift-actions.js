@@ -1,8 +1,15 @@
-export const runLiftA = "runLiftA";
-export const runLiftB = "runLiftB";
-export const isMoving = "isMoving";
-export const changeLevelCount = "changeLevelCount";
-export const upperLiftPosition = "upperLiftPosition";
-export const changeHeight = "changeHeight";
-export const changeWidth = "changeWidth";
-export const field = "field";
+import { fieldActions } from "./lift-actionTypes";
+
+export const elevatorButtonsControl = (type, value) => ({
+    type,
+    value,
+});
+export const buttonsAreOn = (type, disabled) => ({
+    type,
+    disabled,
+});
+export const fieldValues = (field, value) => ({
+    type: fieldActions,
+    field,
+    value: Number(value),
+});

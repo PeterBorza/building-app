@@ -1,65 +1,59 @@
-import {
-  runLiftA,
-  runLiftB,
-  isMoving,
-  changeLevelCount,
-  upperLiftPosition,
-  changeHeight,
-  changeWidth,
-  field,
-} from "./lift-actions";
+import * as actions from "./lift-actionTypes";
 
-const liftReducer = (state, action) => {
-  const { type, value } = action;
-  switch (type) {
-    case runLiftA:
-      return {
-        ...state,
-        positionA: value,
-        positionFloor: value,
-        disabled: true,
-      };
-    case runLiftB:
-      return {
-        ...state,
-        positionB: value,
-        positionFloor: value,
-        disabled: true,
-      };
-    case isMoving:
-      return {
-        ...state,
-        disabled: false,
-      };
-    case changeLevelCount:
-      return {
-        ...state,
-        numberOfLevels: value,
-      };
-    case upperLiftPosition:
-      return {
-        ...state,
-        positionB: value,
-      };
-    case changeHeight:
-      return {
-        ...state,
-        liftHeight: value,
-      };
-    case changeWidth:
-      return {
-        ...state,
-        liftWidth: value,
-      };
-    case field:
-      return {
-        ...state,
-        [action.field]: action.value,
-      };
+export const liftReducer = (state, action) => {
+    const { type, value, field } = action;
+    switch (type) {
+        case actions.runLiftA:
+            return {
+                ...state,
+                positionA: value,
+                positionFloor: value,
+                disabled: true,
+            };
+        case actions.runLiftB:
+            return {
+                ...state,
+                positionB: value,
+                positionFloor: value,
+                disabled: true,
+            };
+        case actions.isMoving:
+            return {
+                ...state,
+                disabled: false,
+            };
+        case actions.changeLevelCount:
+            return {
+                ...state,
+                numberOfLevels: value,
+            };
+        case actions.upperLiftPosition:
+            return {
+                ...state,
+                positionB: value,
+            };
+        case actions.changeHeight:
+            return {
+                ...state,
+                liftHeight: value,
+            };
+        case actions.changeWidth:
+            return {
+                ...state,
+                liftWidth: value,
+            };
+        case actions.fieldActions:
+            return {
+                ...state,
+                [field]: value,
+            };
 
-    default:
-      return state;
-  }
+        default:
+            return state;
+    }
 };
 
-export default liftReducer;
+export const levelsArray = numberOfLevels =>
+    Array(numberOfLevels)
+        .fill()
+        .map((_, i) => i);

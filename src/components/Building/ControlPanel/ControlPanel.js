@@ -1,6 +1,7 @@
 import styles from "./ControlPanel.module.scss";
 import { LiftStateContext, LiftDispatchContext } from "../LiftContext/lift-context";
 import { useContext, useState } from "react";
+import { fieldValues } from "../LiftContext/lift-actions";
 
 // *************************************************************
 
@@ -20,30 +21,13 @@ const ControlPanel = () => {
     const submitNewData = e => {
         e.preventDefault();
 
-        console.log(values);
-        const { lh, bw, nl } = values;
-        Number(lh) === 0 || Number(bw) === 0 || Number(nl) === 0
+        const { lh, bw, nl, liftSpeed } = values;
+        Number(lh) === 0 || Number(bw) === 0 || Number(nl) === 0 || Number(liftSpeed) === 0
             ? setError(true)
-            : dispatch({
-                  type: "field",
-                  field: "numberOfLevels",
-                  value: Number(values.nl),
-              });
-        dispatch({
-            type: "field",
-            field: "liftHeight",
-            value: Number(values.lh),
-        });
-        dispatch({
-            type: "field",
-            field: "liftWidth",
-            value: Number(values.bw),
-        });
-        dispatch({
-            type: "field",
-            field: "speed",
-            value: Number(values.liftSpeed),
-        });
+            : dispatch(fieldValues("numberOfLevels", values.nl));
+        dispatch(fieldValues("liftHeight", values.lh));
+        dispatch(fieldValues("liftWidth", values.bw));
+        dispatch(fieldValues("speed", values.liftSpeed));
     };
 
     // *************************************************************
