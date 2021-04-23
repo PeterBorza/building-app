@@ -1,6 +1,6 @@
 import "./App.scss";
-import NavBar from "./components/NavBar/NavBar";
 import { LinkContextProvider } from "./Context/link-provider";
+import NavBar from "./components/NavBar/NavBar";
 import Main from "./components/Main";
 import { BrowserRouter as Router } from "react-router-dom";
 

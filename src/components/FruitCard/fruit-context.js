@@ -6,11 +6,20 @@ import pear from "../../images/pear.jpg";
 import mango from "../../images/mango.jpg";
 import bananas from "../../images/bananas.jpg";
 import grapes from "../../images/grapes.jpg";
-import { createContext } from "react";
 
-export const FruitContext = createContext();
+export const Fruits = () => {
+    return [apple, orange, lemon, apricot, pear, mango, bananas, grapes];
+};
 
-export const FruitContextProvider = ({ children }) => {
-    const fruits = [apple, orange, lemon, apricot, pear, mango, bananas, grapes];
-    return <FruitContext.Provider value={fruits}>{children}</FruitContext.Provider>;
+export const FruitData = () => {
+    return [
+        "apple",
+        "orange",
+        "lemon",
+        "apricot",
+        "pear",
+        "mango",
+        "bananas",
+        "grapes",
+    ];
 };
