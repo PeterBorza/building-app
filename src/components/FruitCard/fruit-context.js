@@ -7,6 +7,51 @@ import mango from "../../images/mango.jpg";
 import bananas from "../../images/bananas.jpg";
 import grapes from "../../images/grapes.jpg";
 
+export const FruitDataBase = () => {
+    return [
+        {
+            src: apple,
+            title: "apple",
+            id: 100,
+        },
+        {
+            src: orange,
+            title: "orange",
+            id: 101,
+        },
+        {
+            src: lemon,
+            title: "lemon",
+            id: 102,
+        },
+        {
+            src: apricot,
+            title: "apricot",
+            id: 103,
+        },
+        {
+            src: pear,
+            title: "pear",
+            id: 104,
+        },
+        {
+            src: mango,
+            title: "mango",
+            id: 105,
+        },
+        {
+            src: bananas,
+            title: "bananas",
+            id: 106,
+        },
+        {
+            src: grapes,
+            title: "grapes",
+            id: 107,
+        },
+    ];
+};
+
 export const Fruits = () => {
     return [apple, orange, lemon, apricot, pear, mango, bananas, grapes];
 };

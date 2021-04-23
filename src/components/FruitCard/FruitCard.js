@@ -13,8 +13,8 @@ const FruitCard = () => {
             <Link to={`/fruitcard/${i}`}>{item}</Link>
         </div>
     );
-    const renderFruits = data.map(renderFruit);
-    return <div className={fruitStyle}>{renderFruits}</div>;
+
+    return <div className={fruitStyle}>{data.map(renderFruit)}</div>;
 };
 
 export default FruitCard;
