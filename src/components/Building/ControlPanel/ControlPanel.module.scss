@@ -20,22 +20,38 @@
             margin: 5px;
             padding: 5px;
         }
-        button {
-            margin: 5px;
-            padding: 6px;
-            outline: none;
-            border: none;
-            background-color: rgb(12, 66, 68);
-            color: white;
-            border-radius: 5px;
-            &:hover {
-                cursor: pointer;
-                color: grey;
-            }
-            &:active {
-                transform: scale(0.97);
-            }
-        }
+    }
+}
+
+.errorPanel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    p {
+        text-align: center;
+        color: crimson;
+        font-weight: bold;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+}
+.controlButton {
+    margin: 5px;
+    padding: 6px;
+    outline: none;
+    border: none;
+    background-color: rgb(12, 66, 68);
+    color: white;
+    border-radius: 5px;
+    &:hover {
+        cursor: pointer;
+        color: grey;
+    }
+    &:active {
+        transform: scale(0.97);
     }
 }
 
