@@ -2,108 +2,121 @@ $bd: 1px solid red;
 $navBg: rgba(26, 59, 87, 0.7);
 
 .logo {
-    position: relative;
-    width: 20%;
-    height: 100%;
-    background-color: rgba(26, 59, 87, 0.2);
-    color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
-    letter-spacing: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 300ms ease;
-    &:after {
-        position: absolute;
-        content: "";
-        width: 40%;
-        height: 2px;
-        left: 20%;
-        background-color: red;
-        animation: logoAnimationHor 2000ms infinite alternate-reverse linear;
-    }
-    @keyframes logoAnimationHor {
-        0% {
-            transform: translateY(-400%);
-        }
-        100% {
-            transform: translateY(400%);
-        }
-    }
-    &:before {
-        position: absolute;
-        content: "";
-        width: 2px;
-        height: 75%;
-        top: 10%;
-        background-color: orange;
-        animation: logoAnimationVer 4000ms infinite alternate-reverse linear;
-    }
-    @keyframes logoAnimationVer {
-        0% {
-            transform: translateX(-3000%) rotateZ(45deg);
-        }
-        100% {
-            transform: translateX(1000%) rotateZ(-45deg);
-        }
-    }
-    img {
-        height: 60px;
-        width: 60px;
-        border-radius: 50%;
-    }
+	position: relative;
+	width: 20%;
+	height: 100%;
+	background-color: rgba(26, 59, 87, 0.2);
+	color: white;
+	font-size: 1.2rem;
+	font-weight: bold;
+	letter-spacing: 3px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform 300ms ease;
+	&:after {
+		position: absolute;
+		content: '';
+		width: 40%;
+		height: 2px;
+		left: 20%;
+		background-color: red;
+		animation: logoAnimationHor 2000ms infinite alternate-reverse linear;
+	}
+	@keyframes logoAnimationHor {
+		0% {
+			transform: translateY(-400%);
+		}
+		100% {
+			transform: translateY(400%);
+		}
+	}
+	&:before {
+		position: absolute;
+		content: '';
+		width: 2px;
+		height: 75%;
+		top: 10%;
+		background-color: orange;
+		animation: logoAnimationVer 4000ms infinite alternate-reverse linear;
+	}
+	@keyframes logoAnimationVer {
+		0% {
+			transform: translateX(-3000%) rotateZ(45deg);
+		}
+		100% {
+			transform: translateX(1000%) rotateZ(-45deg);
+		}
+	}
+	img {
+		height: 60px;
+		width: 60px;
+		border-radius: 50%;
+	}
 }
 
 // *******************************************
 .navBar {
-    position: fixed;
-    top: 0;
-    min-width: 100%;
-    height: 8vh;
-    background-color: $navBg;
-    display: flex;
-    justify-content: space-between;
-    z-index: 1;
+	position: fixed;
+	top: 0;
+	min-width: 100%;
+	height: 8vh;
+	background-color: $navBg;
+	display: flex;
+	justify-content: space-between;
+	z-index: 1;
 }
 .navList {
-    width: 70%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // border: $bd;
+	width: 70%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	// border: $bd;
 }
 .navColumn {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 30%;
-    padding-right: 10px;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	width: 30%;
+	padding-right: 10px;
 }
 
 .navLinks {
-    text-decoration: none;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-    font-weight: bold;
-    font-size: 1.8rem;
-    color: white;
-    letter-spacing: 1px;
-    // border: $bd;
+	text-decoration: none;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-weight: bold;
+	font-size: 1.8rem;
+	color: white;
+	letter-spacing: 1px;
+	// border: $bd;
 }
 
-@media only screen and (max-width: 700px) {
-    .navList {
-        width: 80%;
-    }
-    .navLinks {
-        font-size: 1rem;
-    }
-    .logo {
-        width: 20%;
-        font-size: 1rem;
-        text-align: center;
-    }
+@media only screen and (max-width: 800px) {
+	.navList {
+		width: 80%;
+	}
+	.navLinks {
+		font-size: 1rem;
+	}
+	.logo {
+		width: 20%;
+		font-size: 1rem;
+		text-align: center;
+	}
+}
+@media only screen and (max-width: 1400px) {
+	.navList {
+		width: 60%;
+	}
+	.navLinks {
+		font-size: 1rem;
+	}
+	.logo {
+		width: 20%;
+		font-size: 1rem;
+		text-align: center;
+	}
 }

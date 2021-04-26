@@ -1,36 +1,36 @@
 $primaryColor: cadetblue;
 
 .container {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
 }
 
 .block {
-  position: relative;
-  display: grid;
-  place-items: center;
-  outline: 5px solid $primaryColor;
+	position: relative;
+	display: grid;
+	place-items: center;
+	outline: 5px solid $primaryColor;
 }
 
 .leftSide {
-  left: 2%;
-  position: absolute;
-  bottom: 0;
+	left: 2%;
+	position: absolute;
+	bottom: 0;
 }
 .rightSide {
-  right: 2%;
-  position: absolute;
-  bottom: 0;
+	right: 2%;
+	position: absolute;
+	bottom: 0;
 }
 
 @media only screen and (max-width: 800px) {
-  .container {
-    flex-direction: column;
-  }
-  .block {
-    width: 60%;
-  }
+	.container {
+		flex-direction: column;
+	}
+	.block {
+		width: 60%;
+	}
 }
