@@ -102,7 +102,6 @@ const NewBuilding = () => {
 			<LiftStateContext.Provider value={{ liftState, levels }}>
 				<LiftDispatchContext.Provider value={dispatch}>
 					<ControlPanel />
-
 					<div className={block} style={containerDynamicStyle()}>
 						<Shaft
 							levels={levels}

@@ -9,31 +9,31 @@ import { fieldValues } from "../LiftContext/lift-actions";
 // *************************************************************
 
 const ControlPanel = () => {
-    const { controlPanel } = styles;
+    const { controlPanel, errorPanel, controlButton } = styles;
     const { liftState } = useContext(LiftStateContext);
     const { liftHeight, liftWidth, numberOfLevels, speed } = liftState;
+    const dispatch = useContext(LiftDispatchContext);
     const [error, setError] = useState(false);
     const [values, setValues] = useState({
-        lh: liftHeight,
-        bw: liftWidth,
-        nl: numberOfLevels,
-        liftSpeed: speed,
+        LIFT_HEIGHT: liftHeight,
+        BUILDING_WIDTH: liftWidth,
+        NUMBER_OF_LEVELS: numberOfLevels,
+        SPEED: speed,
     });
-    const dispatch = useContext(LiftDispatchContext);
+    const { LIFT_HEIGHT, BUILDING_WIDTH, NUMBER_OF_LEVELS, SPEED } = values;
 
     const submitNewData = e => {
         e.preventDefault();
 
-        const { lh, bw, nl, liftSpeed } = values;
-        Number(lh) === 0 ||
-        Number(bw) === 0 ||
-        Number(nl) === 0 ||
-        Number(liftSpeed) === 0
+        Number(LIFT_HEIGHT) === 0 ||
+        Number(BUILDING_WIDTH) === 0 ||
+        Number(NUMBER_OF_LEVELS) === 0 ||
+        Number(SPEED) === 0
             ? setError(true)
-            : dispatch(fieldValues("numberOfLevels", values.nl));
-        dispatch(fieldValues("liftHeight", values.lh));
-        dispatch(fieldValues("liftWidth", values.bw));
-        dispatch(fieldValues("speed", values.liftSpeed));
+            : dispatch(fieldValues("numberOfLevels", NUMBER_OF_LEVELS));
+        dispatch(fieldValues("liftHeight", LIFT_HEIGHT));
+        dispatch(fieldValues("liftWidth", BUILDING_WIDTH));
+        dispatch(fieldValues("speed", SPEED));
     };
 
     // *************************************************************
@@ -41,45 +41,63 @@ const ControlPanel = () => {
     return (
         <div className={controlPanel}>
             {error ? (
-                <>
-                    <p>Not working with 0</p>
-                    <button onClick={() => setError(false)}>Try again</button>
-                </>
+                <div className={errorPanel}>
+                    <p>
+                        You must provide a greater than 0 value to all fields!
+                    </p>
+                    <button
+                        className={controlButton}
+                        onClick={() => setError(false)}
+                    >
+                        Try again
+                    </button>
+                </div>
             ) : (
                 <form onSubmit={submitNewData}>
                     Levels:
                     <input
                         type="text"
-                        value={values.nl}
+                        value={NUMBER_OF_LEVELS}
                         onChange={e =>
-                            setValues({ ...values, nl: e.target.value })
+                            setValues({
+                                ...values,
+                                NUMBER_OF_LEVELS: e.target.value,
+                            })
                         }
                     />
                     Lift height:
                     <input
                         type="text"
-                        value={values.lh}
+                        value={LIFT_HEIGHT}
                         onChange={e =>
-                            setValues({ ...values, lh: e.target.value })
+                            setValues({
+                                ...values,
+                                LIFT_HEIGHT: e.target.value,
+                            })
                         }
                     />
                     Block width:
                     <input
                         type="text"
-                        value={values.bw}
+                        value={BUILDING_WIDTH}
                         onChange={e =>
-                            setValues({ ...values, bw: e.target.value })
+                            setValues({
+                                ...values,
+                                BUILDING_WIDTH: e.target.value,
+                            })
                         }
                     />
                     Speed
                     <input
                         type="text"
-                        value={values.liftSpeed}
+                        value={SPEED}
                         onChange={e =>
-                            setValues({ ...values, liftSpeed: e.target.value })
+                            setValues({ ...values, SPEED: e.target.value })
                         }
                     />
-                    <button type="submit">Submit</button>
+                    <button className={controlButton} type="submit">
+                        Submit
+                    </button>
                 </form>
             )}
         </div>
