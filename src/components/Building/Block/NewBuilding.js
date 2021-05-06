@@ -46,7 +46,11 @@ const NewBuilding = () => {
 		let difA = Math.abs(positionA - floorButton);
 		let difB = Math.abs(positionB - floorButton);
 
-		difA < difB || positionA <= positionB
+		difA < difB
+			? dispatch(elevatorButtonsControl(runLiftA, floorButton))
+			: difA > difB
+			? dispatch(elevatorButtonsControl(runLiftB, floorButton))
+			: positionA <= positionB
 			? dispatch(elevatorButtonsControl(runLiftA, floorButton))
 			: dispatch(elevatorButtonsControl(runLiftB, floorButton));
 	};
