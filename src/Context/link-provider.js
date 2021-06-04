@@ -1,10 +1,10 @@
 import { createContext } from "react";
-import FruitCard from "../components/FruitCard/FruitCard";
-import Fruit from "../components/FruitCard/Fruit/Fruit";
-import HomePage from "../components/HomePage/HomePage";
-import Quiz from "../components/Quiz/Projects";
-import NewBuilding from "../components/Building/Block/NewBuilding";
-import BusinessCard from "../components/BusinessCardPage/BusinessCard/BusinessCard";
+import FruitCard from "../components/FruitCard";
+import Fruit from "../components/FruitCard";
+import HomePage from "../components/HomePage";
+import Quiz from "../components/Quiz";
+import NewBuilding from "../components/Building";
+import BusinessCard from "../components/BusinessCardPage";
 
 export const LinkContext = createContext();
 

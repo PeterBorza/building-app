@@ -4,22 +4,22 @@ import {
     LiftStateContext,
     LiftDispatchContext,
     initialState,
-} from "../LiftContext/lift-context";
-import { liftReducer, levelsArray } from "../LiftContext/lift-reducer";
-import Lift from "../Lift/Lift";
-import Shaft from "../Shaft/Shaft";
-import InitialState from "../InitialState/InitialState";
-import ControlPanel from "../ControlPanel/ControlPanel";
+} from "./LiftContext/lift-context";
+import { liftReducer, levelsArray } from "./LiftContext/lift-reducer";
+import Lift from "./Lift/Lift";
+import Shaft from "./Shaft/Shaft";
+import InitialState from "./InitialState/InitialState";
+import ControlPanel from "./ControlPanel/ControlPanel";
 import {
     runLiftA,
     runLiftB,
     isMoving,
     upperLiftPosition,
-} from "../LiftContext/lift-actionTypes";
+} from "./LiftContext/lift-actionTypes";
 import {
     elevatorButtonsControl,
     buttonsAreOn,
-} from "../LiftContext/lift-actions";
+} from "./LiftContext/lift-actions";
 
 const NewBuilding = () => {
     const { container, block, leftSide, rightSide } = styles;
