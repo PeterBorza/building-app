@@ -6,10 +6,10 @@ import {
     initialState,
 } from "./LiftContext/lift-context";
 import { liftReducer, levelsArray } from "./LiftContext/lift-reducer";
-import Lift from "./Lift/Lift";
-import Shaft from "./Shaft/Shaft";
-import InitialState from "./InitialState/InitialState";
-import ControlPanel from "./ControlPanel/ControlPanel";
+import Lift from "./Lift";
+import Shaft from "./Shaft";
+import InitialState from "./InitialState";
+import ControlPanel from "./ControlPanel";
 import {
     runLiftA,
     runLiftB,
