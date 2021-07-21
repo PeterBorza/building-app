@@ -55,20 +55,3 @@ export const FruitDataProvider = ({ children }) => {
     ];
     return <FruitData.Provider value={[fruits]}>{children}</FruitData.Provider>;
 };
-
-// export const Fruits = () => {
-//     return [apple, orange, lemon, apricot, pear, mango, bananas, grapes];
-// };
-
-// export const FruitData = () => {
-//     return [
-//         "apple",
-//         "orange",
-//         "lemon",
-//         "apricot",
-//         "pear",
-//         "mango",
-//         "bananas",
-//         "grapes",
-//     ];
-// };
