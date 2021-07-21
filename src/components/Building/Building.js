@@ -36,7 +36,7 @@ const NewBuilding = () => {
     useEffect(() => {
         setLevels(levelsArray(numberOfLevels));
         dispatch(elevatorButtonsControl(upperLiftPosition, numberOfLevels - 1));
-    }, [numberOfLevels]);
+    }, [numberOfLevels, elevatorButtonsControl, upperLiftPosition]);
 
     const callElevator = floorButton => {
         setTimeout(() => dispatch(buttonsAreOn(isMoving, true)), speed);

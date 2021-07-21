@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap");
+@import "../../variables.scss";
+
+@function pale($unit) {
+    @return rgba(0, 0, 0, $unit);
+}
+* {
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    @include flexCenter(row);
+    background-color: #d8d4f2;
+}
+
+.main_frame {
+    position: relative;
+    min-width: 350px;
+    width: 65%;
+    min-height: 200px;
+    height: 70vh;
+    border: 5px solid black;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7), inset 0 0 10px pale(0.3);
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: pale(0.1);
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    z-index: 1;
+    transition: all 900ms ease;
+    &::before {
+        position: absolute;
+        content: "";
+        background-image: url(../../images/ls15.jpg);
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        opacity: 0.2;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        transition: opacity 200ms ease-out;
+    }
+    &:hover::before {
+        opacity: 0.4;
+    }
+    &::after {
+        position: absolute;
+        content: ".";
+        width: 15%;
+        height: 2vh;
+        left: 25%;
+        bottom: 0%;
+        background-color: black;
+        color: white;
+        padding: 5px 10px;
+    }
+    h1 {
+        position: absolute;
+        right: 0;
+        width: 50%;
+        background-color: transparent;
+        overflow: hidden;
+        span {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            display: inline-block;
+            font-size: 5rem;
+            opacity: 0.5;
+            transform: translateY(-100%);
+            transition: all 3s ease-out;
+            z-index: 1;
+            background: linear-gradient(white 45%, black 75%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            &.__showText {
+                transform: translateY(0%);
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.yellow {
+    position: absolute;
+    width: 15%;
+    height: 90%;
+    left: 25%;
+    top: 20%;
+    background-color: #f0bb0e;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: translateY(120%);
+    transition: all 2s ease-out;
+    transition-delay: 0.4s;
+    &::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 3px;
+        left: 0;
+        bottom: -6px;
+        background-color: inherit;
+    }
+    &__animate {
+        transform: translateY(-115%);
+    }
+}
+
+.red {
+    position: absolute;
+    width: 95%;
+    height: 20%;
+    left: -25%;
+    top: 45%;
+    background-color: #c14242;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: translateX(-120%);
+    transition: all 2s ease-out;
+    &::before {
+        position: absolute;
+        content: "";
+        width: 3px;
+        height: 100%;
+        left: -6px;
+        bottom: 0;
+        background-color: inherit;
+    }
+    &__animate {
+        transform: translateX(120%);
+    }
+}
+
+.title {
+    min-width: 300px;
+    width: 100%;
+    height: 70%;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: flex-start;
+    img {
+        position: relative;
+        display: block;
+        width: 20%;
+        border-left: 1px solid #f0bb0e;
+        border-bottom: 1px solid #f0bb0e;
+    }
+    h2 {
+        position: relative;
+        font-size: 3rem;
+        animation: blink 3s forwards infinite alternate-reverse;
+        &::after {
+            position: absolute;
+            content: "";
+            min-width: 250px;
+            width: 480%;
+            height: 2px;
+            background-color: red;
+            left: 0;
+            bottom: 0px;
+        }
+    }
+    @keyframes blink {
+        0% {
+            color: black;
+        }
+        100% {
+            color: rgba(0, 0, 0, 0.199);
+        }
+    }
+    p {
+        font-size: 1.4rem;
+        color: rgba(0, 0, 0, 0.8);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .main-frame h1 span {
+        font-size: 3rem;
+    }
+    .title {
+        padding: 0.7rem;
+    }
+    .title h2 {
+        font-size: 1.6rem;
+    }
+    .title p {
+        font-size: 0.8rem;
+    }
+}

@@ -4,6 +4,7 @@ import HomePage from "../components/HomePage";
 import Quiz from "../components/Quiz";
 import Building from "../components/Building";
 import BusinessCard from "../components/BusinessCardPage";
+import { Portfolio } from "../components/Portfolio";
 
 export const LinkContext = createContext();
 
@@ -45,11 +46,18 @@ export const LinkContextProvider = ({ children }) => {
             id: 5,
         },
         {
+            path: "/portfolio",
+            exact: true,
+            component: Portfolio,
+            title: "Portfolio",
+            id: 6,
+        },
+        {
             path: "/fruitcard/:id",
             component: Fruit,
             title: "",
             exact: false,
-            id: 6,
+            id: 7,
         },
     ];
 
