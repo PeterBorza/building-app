@@ -1,2 +1,2 @@
-export * as buildingComponents from "../Building";
+// export * as buildingComponents from "../Building";
 export { default } from "./NewBuilding";

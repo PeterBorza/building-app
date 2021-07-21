@@ -1,37 +1,20 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styles from "./QuizBox.module.scss";
+import { QuizContext } from "../../../Context/quizContext";
+
 const QuizBox = () => {
+    const { questions, correctAnswers } = useContext(QuizContext);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
 
-    const q = [
-        {
-            question: "question 1?",
-            answers: ["no", "yes", "maybe"],
-            id: "1",
-        },
-        {
-            question: "question 2?",
-            answers: ["no", "yes", "maybe"],
-            id: "2",
-        },
-        {
-            question: "question 3?",
-            answers: ["no", "yes", "maybe"],
-            id: "3",
-        },
-    ];
-
-    const correctAnswers = [0, 1, 2];
-
-    // const { q, correctAnswers, showScore, score, setScore, setShowScore } = useContext(MyContext);
-
     const nextQuestion = currentQuestion + 1;
-    const handleNextQuestion = index => {
-        index === correctAnswers[currentQuestion] && setScore(prev => prev + 100 / q.length);
 
-        nextQuestion < q.length
+    const handleNextQuestion = index => {
+        index === correctAnswers[currentQuestion] &&
+            setScore(prev => prev + 100 / questions.length);
+
+        nextQuestion < questions.length
             ? setCurrentQuestion(nextQuestion)
             : setTimeout(() => setShowScore(true), 1000);
     };
@@ -42,22 +25,28 @@ const QuizBox = () => {
                 <>
                     <div>
                         <h2>
-                            Question <span>{nextQuestion}</span>/{q.length}
+                            Question <span>{nextQuestion}</span>/
+                            {questions.length}
                         </h2>
-                        <h1>{q[currentQuestion].question}</h1>
+                        <h1>{questions[currentQuestion].question}</h1>
                     </div>
                     <div className={styles.btnWrap}>
-                        {q[currentQuestion].answers.map((answer, index) => (
-                            <button key={index} onClick={() => handleNextQuestion(index)}>
-                                {answer}
-                            </button>
-                        ))}
+                        {questions[currentQuestion].answers.map(
+                            (answer, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => handleNextQuestion(index)}
+                                >
+                                    {answer}
+                                </button>
+                            )
+                        )}
                     </div>
                 </>
             ) : (
                 <div className={styles.scoreStyle}>
                     <h1>
-                        Your score is <span>{score}%</span>
+                        Your score is <span>{Math.floor(score)}%</span>
                     </h1>
                     <button
                         onClick={() => {

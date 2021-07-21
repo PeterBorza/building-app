@@ -1,3 +1,4 @@
+import { createContext } from "react";
 import apple from "../../images/apple.jpg";
 import orange from "../../images/orange.jpg";
 import lemon from "../../images/lemon.jpg";
@@ -7,8 +8,10 @@ import mango from "../../images/mango.jpg";
 import bananas from "../../images/bananas.jpg";
 import grapes from "../../images/grapes.jpg";
 
-export const FruitDataBase = () => {
-    return [
+export const FruitData = createContext();
+
+export const FruitDataProvider = ({ children }) => {
+    const fruits = [
         {
             src: apple,
             title: "apple",
@@ -50,21 +53,22 @@ export const FruitDataBase = () => {
             id: 107,
         },
     ];
+    return <FruitData.Provider value={[fruits]}>{children}</FruitData.Provider>;
 };
 
-export const Fruits = () => {
-    return [apple, orange, lemon, apricot, pear, mango, bananas, grapes];
-};
+// export const Fruits = () => {
+//     return [apple, orange, lemon, apricot, pear, mango, bananas, grapes];
+// };
 
-export const FruitData = () => {
-    return [
-        "apple",
-        "orange",
-        "lemon",
-        "apricot",
-        "pear",
-        "mango",
-        "bananas",
-        "grapes",
-    ];
-};
+// export const FruitData = () => {
+//     return [
+//         "apple",
+//         "orange",
+//         "lemon",
+//         "apricot",
+//         "pear",
+//         "mango",
+//         "bananas",
+//         "grapes",
+//     ];
+// };

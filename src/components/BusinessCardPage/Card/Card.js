@@ -2,14 +2,16 @@ import { useContext } from "react";
 import styles from "./Card.module.scss";
 import { CardContext } from "../../../Context/CardContext";
 import CardDetails from "../CardDetails/CardDetails";
+import { shuffle } from "../../utils/shuffle";
 
 const Card = () => {
     const { businessCard, imgStyle } = styles;
     const [persons] = useContext(CardContext);
+    const shuffledPersons = shuffle(persons);
 
     return (
         <>
-            {persons.map(({ name, age, occupation, id, photo }) => (
+            {shuffledPersons.map(({ name, age, occupation, id, photo }) => (
                 <div key={id} className={businessCard}>
                     <img className={imgStyle} src={photo} alt={id} />
                     <h2>

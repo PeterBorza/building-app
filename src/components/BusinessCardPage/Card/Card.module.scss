@@ -8,9 +8,7 @@
     border-radius: 10px;
     user-select: none;
     transition: transform 250ms;
-    &:hover {
-        transform: translateZ(10px);
-    }
+
     .imgStyle {
         max-width: 30%;
         margin: 0 auto;
@@ -20,6 +18,10 @@
         box-shadow: $shadow;
         padding: 3px;
         border-radius: 10px;
+        transition: all 100ms ease-in-out;
+        &:hover {
+            transform: translateZ(10px);
+        }
         li {
             list-style: none;
             p {

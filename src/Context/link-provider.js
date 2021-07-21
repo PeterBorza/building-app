@@ -1,6 +1,5 @@
 import { createContext } from "react";
-import FruitCard from "../components/FruitCard";
-import Fruit from "../components/FruitCard/Fruit";
+import FruitCard, { Fruit } from "../components/FruitCard";
 import HomePage from "../components/HomePage";
 import Quiz from "../components/Quiz";
 import NewBuilding from "../components/Building";

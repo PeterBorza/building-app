@@ -1,20 +1,30 @@
+import React, { useContext } from "react";
 import styles from "./FruitCard.module.scss";
 import { Link } from "react-router-dom";
-import { Fruits, FruitData } from "./fruit-context";
+import { FruitData } from "./fruit-context";
+
+const { fruitStyle, fruitBox } = styles;
 
 const FruitCard = () => {
-    const { fruitStyle, fruitBox } = styles;
-    const fruits = Fruits();
-    const data = FruitData();
+    const [fruits] = useContext(FruitData);
 
-    const renderFruit = (item, i) => (
-        <div key={i} className={fruitBox}>
-            <img src={fruits[i]} alt={item} />
-            <Link to={`/fruitcard/${i}`}>{item}</Link>
+    // const renderFruit = (item, i) => (
+    //     <div key={item.id} className={fruitBox}>
+    //         <img src={item.src} alt={item.title} />
+    //         <Link to={`/fruitcard/${i}`}>{item.title}</Link>
+    //     </div>
+    // );
+
+    return (
+        <div className={fruitStyle}>
+            {fruits.map((item, i) => (
+                <div key={item.id} className={fruitBox}>
+                    <img src={item.src} alt={item.title} />
+                    <Link to={`/fruitcard/${i}`}>{item.title}</Link>
+                </div>
+            ))}
         </div>
     );
-
-    return <div className={fruitStyle}>{data.map(renderFruit)}</div>;
 };
 
 export default FruitCard;
