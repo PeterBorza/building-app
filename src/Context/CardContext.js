@@ -37,13 +37,6 @@ export const CardContextProvider = ({ children }) => {
             id: Math.floor(Math.random() * 10000),
             photo: wood,
         },
-        {
-            name: "Merlin",
-            age: "1",
-            occupation: "dev team",
-            id: Math.floor(Math.random() * 10000),
-            photo: merlin,
-        },
     ]);
 
     return (
