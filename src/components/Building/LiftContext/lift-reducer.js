@@ -52,8 +52,3 @@ export const liftReducer = (state, action) => {
             return state;
     }
 };
-
-export const levelsArray = numberOfLevels =>
-    Array(numberOfLevels)
-        .fill()
-        .map((_, i) => i);

@@ -1,10 +1,13 @@
-import styles from "./Shaft.module.scss";
 import { useContext } from "react";
-import { LiftStateContext } from "../LiftContext/lift-context";
+
+import { liftContext } from "../LiftContext";
+
+import styles from "./Shaft.module.scss";
 
 const Shaft = ({ callElevator, shaftDynamicStyle }) => {
-    const { liftState, levels } = useContext(LiftStateContext);
+    const { liftState, levels } = useContext(liftContext.LiftStateContext);
     const { disabled } = liftState;
+
     return (
         <div className={styles.shaftButtons}>
             {levels.map(floorButton => (

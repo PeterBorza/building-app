@@ -1,14 +1,11 @@
-import styles from "./ControlPanel.module.scss";
-import {
-    LiftStateContext,
-    LiftDispatchContext,
-} from "../LiftContext/lift-context";
 import { useContext, useState } from "react";
-import { fieldValues } from "../LiftContext/lift-actions";
 
-// *************************************************************
+import { liftContext, actions } from "../LiftContext";
+import styles from "./ControlPanel.module.scss";
 
 const ControlPanel = () => {
+    const { LiftStateContext, LiftDispatchContext } = liftContext;
+    const { fieldValues } = actions;
     const { controlPanel, errorPanel, controlButton } = styles;
     const { liftState } = useContext(LiftStateContext);
     const { liftHeight, liftWidth, numberOfLevels, speed } = liftState;

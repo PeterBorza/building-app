@@ -2,7 +2,7 @@ import { createContext } from "react";
 import FruitCard, { Fruit } from "../components/FruitCard";
 import HomePage from "../components/HomePage";
 import Quiz from "../components/Quiz";
-import NewBuilding from "../components/Building";
+import Building from "../components/Building";
 import BusinessCard from "../components/BusinessCardPage";
 
 export const LinkContext = createContext();
@@ -26,7 +26,7 @@ export const LinkContextProvider = ({ children }) => {
         {
             path: "/building",
             exact: false,
-            component: NewBuilding,
+            component: Building,
             title: "Building",
             id: 3,
         },

@@ -1,10 +1,7 @@
-import {
-    LiftStateContext,
-    LiftDispatchContext,
-} from "../LiftContext/lift-context";
-import { buttonsAreOn } from "../LiftContext/lift-actions";
-import { isMoving } from "../LiftContext/lift-actionTypes";
 import { useContext } from "react";
+
+import { liftContext, actions, actionTypes } from "../LiftContext";
+
 import styles from "./Lift.module.scss";
 import classNames from "classnames";
 
@@ -15,6 +12,9 @@ const Lift = ({
     position,
     fontSizes,
 }) => {
+    const { LiftStateContext, LiftDispatchContext } = liftContext;
+    const { buttonsAreOn } = actions;
+    const { isMoving } = actionTypes;
     const { levels, liftState } = useContext(LiftStateContext);
     const dispatch = useContext(LiftDispatchContext);
     const { liftStyle, active } = styles;

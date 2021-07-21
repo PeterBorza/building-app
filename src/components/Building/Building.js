@@ -1,30 +1,27 @@
-import styles from "./Building.module.scss";
 import { useEffect, useReducer, useState } from "react";
-import {
-    LiftStateContext,
-    LiftDispatchContext,
-    initialState,
-} from "./LiftContext/lift-context";
-import { liftReducer, levelsArray } from "./LiftContext/lift-reducer";
-import Lift from "./Lift";
-import Shaft from "./Shaft";
-import InitialState from "./InitialState";
-import ControlPanel from "./ControlPanel";
-import {
-    runLiftA,
-    runLiftB,
-    isMoving,
-    upperLiftPosition,
-} from "./LiftContext/lift-actionTypes";
-import {
-    elevatorButtonsControl,
-    buttonsAreOn,
-} from "./LiftContext/lift-actions";
+
+import { liftContext, actions, actionTypes, reducers } from "./LiftContext";
+import { Lift, Shaft, InitialState, ControlPanel } from "../Building";
+
+import styles from "./Building.module.scss";
+
+const levelsArray = numberOfLevels =>
+    Array(numberOfLevels)
+        .fill()
+        .map((_, i) => i);
+
+const { container, block, leftSide, rightSide } = styles;
 
 const NewBuilding = () => {
-    const { container, block, leftSide, rightSide } = styles;
     const [levels, setLevels] = useState([]);
-    const [liftState, dispatch] = useReducer(liftReducer, initialState);
+    const { LiftStateContext, LiftDispatchContext, initialState } = liftContext;
+    const { runLiftA, runLiftB, isMoving, upperLiftPosition } = actionTypes;
+    const { elevatorButtonsControl, buttonsAreOn } = actions;
+
+    const [liftState, dispatch] = useReducer(
+        reducers.liftReducer,
+        initialState
+    );
 
     const {
         numberOfLevels,
@@ -43,8 +40,9 @@ const NewBuilding = () => {
 
     const callElevator = floorButton => {
         setTimeout(() => dispatch(buttonsAreOn(isMoving, true)), speed);
-        let difA = Math.abs(positionA - floorButton);
-        let difB = Math.abs(positionB - floorButton);
+
+        const difA = Math.abs(positionA - floorButton);
+        const difB = Math.abs(positionB - floorButton);
 
         difA < difB
             ? dispatch(elevatorButtonsControl(runLiftA, floorButton))
@@ -57,26 +55,21 @@ const NewBuilding = () => {
 
     // DATA ****************************************************
 
-    const liftDynamicStyle = position => {
-        return {
-            height: `${liftHeight}vh`,
-            transition: `transform ${speed}ms ease-in-out`,
-            transform: `translateY(${-position * 100}%)`,
-        };
-    };
+    const liftDynamicStyle = position => ({
+        height: `${liftHeight}vh`,
+        transition: `transform ${speed}ms ease-in-out`,
+        transform: `translateY(${-position * 100}%)`,
+    });
 
     const containerDynamicStyle = {
         height: `${liftHeight * numberOfLevels}vh`,
         width: `${liftWidth}vw`,
     };
 
-    const shaftDynamicStyle = position => {
-        return {
-            fontSize:
-                numberOfLevels > 11 && liftHeight < 9 ? ".8rem" : "1.5rem",
-            color: positionFloor === position ? "white" : "rgb(24, 92, 45)",
-        };
-    };
+    const shaftDynamicStyle = position => ({
+        fontSize: numberOfLevels > 11 && liftHeight < 9 ? ".8rem" : "1.5rem",
+        color: positionFloor === position ? "white" : "rgb(24, 92, 45)",
+    });
 
     const lifts = [
         {
@@ -92,8 +85,6 @@ const NewBuilding = () => {
             handler: runLiftB,
         },
     ];
-
-    // RETURN **************************************************
 
     return (
         <div className={container}>

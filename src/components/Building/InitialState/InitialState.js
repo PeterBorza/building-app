@@ -1,12 +1,17 @@
-import styles from "./InitialState.module.scss";
 import { useContext } from "react";
-import { LiftStateContext } from "../LiftContext/lift-context";
+
+import { liftContext } from "../LiftContext";
+
+import styles from "./InitialState.module.scss";
 
 const InitialState = () => {
+    const { LiftStateContext } = liftContext;
     const { control } = styles;
     const { liftState } = useContext(LiftStateContext);
     const { numberOfLevels, liftHeight, liftWidth, speed, disabled } =
         liftState;
+    const isButtonDisabled = { color: disabled ? "red" : "rgb(19, 83, 83)" };
+
     return (
         <div className={control}>
             <h2>initialState</h2>
@@ -24,7 +29,7 @@ const InitialState = () => {
             </p>
             <p>
                 Buttons:{" "}
-                <span style={{ color: disabled ? "red" : "rgb(19, 83, 83)" }}>
+                <span style={isButtonDisabled}>
                     {disabled ? "disabled" : "functional"}
                 </span>
             </p>
