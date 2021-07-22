@@ -194,3 +194,18 @@
         font-size: 0.8rem;
     }
 }
+
+@media screen and (max-width: 400px) {
+    .main-frame h1 span {
+        font-size: 1.5rem;
+    }
+    .title {
+        padding: 0.5rem;
+    }
+    .title h2 {
+        font-size: 1rem;
+    }
+    .title p {
+        font-size: 0.6rem;
+    }
+}
