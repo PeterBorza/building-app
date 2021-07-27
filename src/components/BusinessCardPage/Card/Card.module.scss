@@ -2,15 +2,15 @@
 
 .businessCard {
     box-shadow: $shadow;
-    padding: 1rem;
-    height: 30vh;
+    padding: 0.3rem;
+    min-height: 40vh;
     @include flexEven(column);
     border-radius: 10px;
     user-select: none;
     transition: transform 250ms;
 
     .imgStyle {
-        max-width: 30%;
+        max-width: 50%;
         margin: 0 auto;
     }
     ul {
@@ -22,23 +22,34 @@
         &:hover {
             transform: translateZ(10px);
         }
-        li {
-            list-style: none;
-            p {
-                @include flexBetween(row);
-            }
-        }
     }
 
     span {
         color: rgb(39, 94, 107);
         text-transform: uppercase;
+        word-wrap: break-word;
     }
 }
 @media only screen and (max-width: 800px) {
     .businessCard {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
         p {
             font-size: 0.5rem;
+        }
+        span {
+            font-size: 1.2rem;
+        }
+        ul {
+            // height: 60%;
+            width: 40%;
+            @include gridCenter;
+        }
+        .imgStyle {
+            max-width: 35%;
+            margin: 0 auto;
         }
     }
 }

@@ -1,3 +1,20 @@
+@import "../../../variables.scss";
 .card_details {
     color: crimson;
+    list-style: none;
+    @include flexBetween(row);
+}
+
+@media only screen and (max-width: 800px) {
+    .card_details {
+        @include flexBetween(column);
+
+        width: 50%;
+        font-size: 0.6rem;
+        span {
+            font-size: 0.8rem;
+            // width: 100%;
+            text-align: center;
+        }
+    }
 }

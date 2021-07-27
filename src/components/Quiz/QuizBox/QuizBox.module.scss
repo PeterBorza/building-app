@@ -1,7 +1,6 @@
 .quizBox {
     width: 50%;
     height: 40vh;
-    margin: 20vh auto;
     border-radius: 5px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     background-color: rgba(0, 0, 0, 0.3);
@@ -76,6 +75,19 @@
         }
         &:active {
             transform: scale(0.97);
+        }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .quizBox {
+        width: 95%;
+        height: 50vh;
+    }
+    .scoreStyle {
+        h1,
+        button {
+            font-size: 1.6rem;
         }
     }
 }
