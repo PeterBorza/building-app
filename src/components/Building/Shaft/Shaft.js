@@ -2,14 +2,14 @@ import { useContext } from "react";
 
 import { liftContext } from "../LiftContext";
 
-import styles from "./Shaft.module.scss";
+import { shaftButtons, movingLiftStyle } from "./Shaft.module.scss";
 
 const Shaft = ({ callElevator, shaftDynamicStyle }) => {
     const { liftState, levels } = useContext(liftContext.LiftStateContext);
     const { disabled } = liftState;
 
     return (
-        <div className={styles.shaftButtons}>
+        <div className={shaftButtons}>
             {levels.map(floorButton => (
                 <button
                     disabled={disabled}
@@ -20,7 +20,7 @@ const Shaft = ({ callElevator, shaftDynamicStyle }) => {
                     {!disabled ? (
                         floorButton
                     ) : (
-                        <div className={styles.movingLiftStyle}></div>
+                        <div className={movingLiftStyle}></div>
                     )}
                 </button>
             ))}

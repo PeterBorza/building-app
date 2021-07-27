@@ -10,7 +10,8 @@ const levelsArray = numberOfLevels =>
         .fill()
         .map((_, i) => i);
 
-const { container, block, leftSide, rightSide } = styles;
+const { container, block, leftSide, rightSide, control_panel, state_panel } =
+    styles;
 
 const NewBuilding = () => {
     const [levels, setLevels] = useState([]);
@@ -90,7 +91,9 @@ const NewBuilding = () => {
         <div className={container}>
             <LiftStateContext.Provider value={{ liftState, levels }}>
                 <LiftDispatchContext.Provider value={dispatch}>
-                    <ControlPanel />
+                    <div className={control_panel}>
+                        <ControlPanel />
+                    </div>
                     <div className={block} style={containerDynamicStyle}>
                         <Shaft
                             levels={levels}
@@ -115,7 +118,9 @@ const NewBuilding = () => {
                             />
                         ))}
                     </div>
-                    <InitialState />
+                    <div className={state_panel}>
+                        <InitialState />
+                    </div>
                 </LiftDispatchContext.Provider>
             </LiftStateContext.Provider>
         </div>
