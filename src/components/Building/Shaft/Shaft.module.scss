@@ -1,4 +1,5 @@
-@import "../../../variables.scss";
+@use "../../../sass/variables" as *;
+@use "../../../sass/mixins" as *;
 
 $btnColor: cadetblue;
 

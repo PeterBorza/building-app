@@ -1,4 +1,4 @@
-@import "../../variables.scss";
+@use "../../sass/mixins" as *;
 
 .fruitBox {
     background-color: cadetblue;
