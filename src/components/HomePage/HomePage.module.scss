@@ -1,12 +1,12 @@
-@use "../../sass/variables" as *;
-@use "../../sass/mixins" as *;
-
 .homePage {
     margin: 10vh auto;
     padding: 1rem;
     width: 80%;
     height: 70vh;
-    @include flexEven(column);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
     button {
         outline: none;
         border: none;
@@ -21,7 +21,9 @@
     padding-left: 3px;
     width: 100%;
     height: 60%;
-    @include flexCenter(column);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     font-size: 1.3rem;
-    font-family: $font;
 }

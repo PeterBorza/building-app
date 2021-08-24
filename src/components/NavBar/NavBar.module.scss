@@ -1,5 +1,4 @@
-@use "../../sass/mixins" as *;
-@use "../../sass/variables" as *;
+@import "../../variables.scss";
 
 .logo {
     position: relative;
@@ -86,12 +85,11 @@
         border-left: 1px solid red;
     }
     h3 {
-        // font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-        font-family: $font;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
         font-weight: bold;
         font-size: 1.6rem;
         color: white;
-        // letter-spacing: 1px;
+        letter-spacing: 1px;
     }
 }
 
