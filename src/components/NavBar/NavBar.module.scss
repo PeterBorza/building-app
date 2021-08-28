@@ -1,11 +1,12 @@
-@import '../../variables.scss';
+@use '../../css/variables.scss' as *;
+@use '../../css/mixins.scss' as *;
 
 .logo {
 	position: relative;
 	width: 30%;
 	height: 100%;
 	background-color: rgba(26, 59, 87, 0.2);
-	@include flexCenter(row);
+	@include fCenter(row);
 	transition: transform 300ms ease;
 	overflow: hidden;
 	h3 {
@@ -63,17 +64,17 @@
 	min-width: 100%;
 	height: 6vh;
 	background-color: rgba(26, 59, 87, 0.7);
-	@include flexBetween(row);
+	@include fBetween(row);
 	z-index: 1;
 }
 .navList {
 	width: 100%;
 	height: 100%;
-	@include flexAround(row);
+	@include fAround(row);
 }
 .navColumn {
 	list-style: none;
-	@include flexAround(row);
+	@include fAround(row);
 }
 
 .navLinks {
@@ -88,47 +89,8 @@
 	h3 {
 		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 		font-weight: bold;
-		font-size: clamp(0.5rem, 3vw, 1.7rem);
+		font-size: clamp(0.5rem, 3vw, 1.3rem);
 		color: white;
 		letter-spacing: 1px;
 	}
 }
-
-// @media only screen and (max-width: 800px) {
-// 	.navList {
-// 		width: 80%;
-// 	}
-// 	.navLinks {
-// 		h3 {
-// 			font-size: 1rem;
-// 			font-weight: 400;
-// 		}
-// 	}
-// 	.logo {
-// 		width: 20%;
-// 		font-size: 1rem;
-// 		text-align: center;
-// 	}
-// }
-
-// @media only screen and (max-width: 450px) {
-// 	.navBar {
-// 		@include flexCenter(row);
-// 	}
-// 	.navList {
-// 		width: 70%;
-// 	}
-// 	.navLinks {
-// 		h3 {
-// 			font-size: 0.7rem;
-// 		}
-// 	}
-// 	.logo {
-// 		width: 25%;
-// 		font-size: 1rem;
-// 		padding-right: 5px;
-// 		img {
-// 			height: 80%;
-// 		}
-// 	}
-// }

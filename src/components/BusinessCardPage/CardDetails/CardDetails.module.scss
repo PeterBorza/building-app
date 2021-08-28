@@ -1,20 +1,22 @@
-@import "../../../variables.scss";
+@use '../../../css/variables.scss' as *;
+@use '../../../css/mixins.scss' as *;
+
 .card_details {
-    color: crimson;
-    list-style: none;
-    @include flexBetween(row);
+	color: crimson;
+	list-style: none;
+	@include fBetween(row);
 }
 
 @media only screen and (max-width: 800px) {
-    .card_details {
-        @include flexBetween(column);
+	.card_details {
+		@include fBetween(column);
 
-        width: 50%;
-        font-size: 0.6rem;
-        span {
-            font-size: 0.8rem;
-            // width: 100%;
-            text-align: center;
-        }
-    }
+		width: 50%;
+		font-size: 0.6rem;
+		span {
+			font-size: 0.8rem;
+			// width: 100%;
+			text-align: center;
+		}
+	}
 }

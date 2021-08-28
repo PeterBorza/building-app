@@ -1,4 +1,5 @@
-@import '../../variables.scss';
+@use '../../css/variables.scss' as *;
+@use '../../css/mixins.scss' as *;
 
 $primaryColor: cadetblue;
 
@@ -6,7 +7,7 @@ $primaryColor: cadetblue;
 	width: 100%;
 	min-width: 100%;
 	min-height: 100vh;
-	@include flexBetween(row);
+	@include fBetween(row);
 	flex-wrap: wrap;
 	padding: 1rem;
 	background-color: darkkhaki;
@@ -20,13 +21,13 @@ $primaryColor: cadetblue;
 }
 
 .control_panel {
-	@include gridCenter;
+	@include centered;
 	height: 50vh;
 	width: 20%;
 }
 
 .state_panel {
-	@include gridCenter;
+	@include centered;
 	height: 50vh;
 	width: 20%;
 }
@@ -44,7 +45,7 @@ $primaryColor: cadetblue;
 
 @media only screen and (max-width: 800px) {
 	.container {
-		@include flexEven(row);
+		@include fEven(row);
 		.block {
 			width: 60%;
 		}
@@ -52,7 +53,7 @@ $primaryColor: cadetblue;
 
 	@media only screen and (max-width: 450px) {
 		.container {
-			@include flexEven(column);
+			@include fEven(column);
 		}
 		.block {
 			width: 60%;

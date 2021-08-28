@@ -1,55 +1,56 @@
-@import "../../../variables.scss";
+@use '../../../css/variables.scss' as *;
+@use '../../../css/mixins.scss' as *;
 
 $btnColor: cadetblue;
 
 .shaftButtons {
-    height: 100%;
-    @include flexCenter(column-reverse);
-    button {
-        width: 40px;
-        height: 100%;
-        margin: 1px;
-        outline: none;
-        border: none;
-        background-color: $btnColor;
-        // color: rgb(24, 92, 45);
-        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-        border-radius: 2px;
-        @include gridCenter;
-        transition: all 200ms ease;
-        &:hover {
-            color: rgb(11, 35, 36);
-            background-color: darken($btnColor, 15%);
-        }
-        &.active {
-            color: white;
-        }
-    }
+	height: 100%;
+	@include fCenter(column-reverse);
+	button {
+		width: 40px;
+		height: 100%;
+		margin: 1px;
+		outline: none;
+		border: none;
+		background-color: $btnColor;
+		// color: rgb(24, 92, 45);
+		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		border-radius: 2px;
+		@include centered;
+		transition: all 200ms ease;
+		&:hover {
+			color: rgb(11, 35, 36);
+			background-color: darken($btnColor, 15%);
+		}
+		&.active {
+			color: white;
+		}
+	}
 }
 .movingLiftStyle {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    // background-color: rgba(202, 20, 20, 0.788);
-    animation: blink 150ms ease-in-out infinite alternate-reverse;
-    @keyframes blink {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 2px 5px;
-    font-size: 0.8rem;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	// background-color: rgba(202, 20, 20, 0.788);
+	animation: blink 150ms ease-in-out infinite alternate-reverse;
+	@keyframes blink {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+	background-color: red;
+	color: white;
+	border-radius: 50%;
+	padding: 2px 5px;
+	font-size: 0.8rem;
 }
 
 @media only screen and (max-width: 800px) {
-    .movingLiftStyle {
-        font-size: 0.4rem;
-        padding: 2px 8px;
-    }
+	.movingLiftStyle {
+		font-size: 0.4rem;
+		padding: 2px 8px;
+	}
 }
