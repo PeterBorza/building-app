@@ -1,63 +1,61 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
 $primaryColor: cadetblue;
 
 .container {
-    width: 100%;
-    min-width: 100%;
-    min-height: 100vh;
-    @include flexBetween(row);
-    flex-wrap: wrap;
-    padding: 1rem;
-    background-color: darkkhaki;
+	width: 100%;
+	min-width: 100%;
+	min-height: 100vh;
+	@include flexBetween(row);
+	flex-wrap: wrap;
+	padding: 1rem;
+	background-color: darkkhaki;
 }
 
 .block {
-    position: relative;
-    display: grid;
-    place-items: center;
-    outline: 5px solid $primaryColor;
+	position: relative;
+	display: grid;
+	place-items: center;
+	outline: 5px solid $primaryColor;
 }
 
 .control_panel {
-    // background-color: violet;
-    @include gridCenter;
-    height: 50vh;
-    width: 20%;
+	@include gridCenter;
+	height: 50vh;
+	width: 20%;
 }
 
 .state_panel {
-    // background-color: darkturquoise;
-    @include gridCenter;
-    height: 50vh;
-    width: 20%;
+	@include gridCenter;
+	height: 50vh;
+	width: 20%;
 }
 
 .leftSide {
-    left: 2%;
-    position: absolute;
-    bottom: 0;
+	left: 2%;
+	position: absolute;
+	bottom: 0;
 }
 .rightSide {
-    right: 2%;
-    position: absolute;
-    bottom: 0;
+	right: 2%;
+	position: absolute;
+	bottom: 0;
 }
 
 @media only screen and (max-width: 800px) {
-    .container {
-        @include flexEven(row);
-        .block {
-            width: 60%;
-        }
-    }
+	.container {
+		@include flexEven(row);
+		.block {
+			width: 60%;
+		}
+	}
 
-    @media only screen and (max-width: 450px) {
-        .container {
-            @include flexEven(column);
-        }
-        .block {
-            width: 60%;
-        }
-    }
+	@media only screen and (max-width: 450px) {
+		.container {
+			@include flexEven(column);
+		}
+		.block {
+			width: 60%;
+		}
+	}
 }
