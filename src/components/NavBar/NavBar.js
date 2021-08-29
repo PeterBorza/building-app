@@ -19,7 +19,7 @@ const NavBar = () => {
 			</div>
 			<ul className={navList}>
 				{links
-					.filter(item => item.id !== 7)
+					.filter(item => item.id !== 8)
 					.map(({ title, path, id }) => (
 						<li className={navColumn} key={id}>
 							<Link className={navLinks} to={`${path}`}>

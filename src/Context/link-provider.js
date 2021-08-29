@@ -1,10 +1,11 @@
 import { createContext } from 'react';
 import FruitCard, { Fruit } from '../components/FruitCard';
 import HomePage from '../components/HomePage';
-import Quiz from '../components/Quiz/Projects/Projects';
+import Projects from '../components/Quiz/';
 import Building from '../components/Building';
 import BusinessCard from '../components/BusinessCardPage';
 import { Portfolio } from '../components/Portfolio';
+import Digits from '../components/Digits/Digits';
 
 export const LinkContext = createContext();
 
@@ -20,7 +21,7 @@ export const LinkContextProvider = ({ children }) => {
 		{
 			path: '/quiz',
 			exact: false,
-			component: Quiz,
+			component: Projects,
 			title: 'Quiz',
 			id: 2,
 		},
@@ -47,17 +48,24 @@ export const LinkContextProvider = ({ children }) => {
 		},
 		{
 			path: '/portfolio',
-			exact: true,
+			exact: false,
 			component: Portfolio,
 			title: 'Portfolio',
 			id: 6,
+		},
+		{
+			path: '/digits',
+			exact: false,
+			component: Digits,
+			title: 'Digits',
+			id: 7,
 		},
 		{
 			path: '/fruitcard/:id',
 			component: Fruit,
 			title: '',
 			exact: false,
-			id: 7,
+			id: 8,
 		},
 	];
 

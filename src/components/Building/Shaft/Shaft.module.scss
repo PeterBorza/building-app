@@ -1,8 +1,6 @@
 @use '../../../css/variables.scss' as *;
 @use '../../../css/mixins.scss' as *;
 
-$btnColor: cadetblue;
-
 .shaftButtons {
 	height: 100%;
 	@include fCenter(column-reverse);

@@ -1,7 +1,8 @@
-import { useEffect, useReducer, useState } from 'react';
+import { useContext, useEffect } from 'react';
 
-import { liftContext, actions, actionTypes, reducers } from './LiftContext';
+import { actions, actionTypes } from './LiftContext';
 import { Lift, Shaft, InitialState, ControlPanel } from '../Building';
+import { BuildingContext } from '../../Context';
 
 import styles from './Building.module.scss';
 
@@ -13,16 +14,10 @@ const levelsArray = numberOfLevels =>
 const { container, block, leftSide, rightSide, control_panel, state_panel } =
 	styles;
 
-const NewBuilding = () => {
-	const [levels, setLevels] = useState([]);
-	const { LiftStateContext, LiftDispatchContext, initialState } = liftContext;
+const Building = () => {
+	const { liftState, dispatch, setLevels } = useContext(BuildingContext);
 	const { runLiftA, runLiftB, isMoving, upperLiftPosition } = actionTypes;
 	const { elevatorButtonsControl, buttonsAreOn } = actions;
-
-	const [liftState, dispatch] = useReducer(
-		reducers.liftReducer,
-		initialState
-	);
 
 	const {
 		numberOfLevels,
@@ -37,7 +32,13 @@ const NewBuilding = () => {
 	useEffect(() => {
 		setLevels(levelsArray(numberOfLevels));
 		dispatch(elevatorButtonsControl(upperLiftPosition, numberOfLevels - 1));
-	}, [numberOfLevels, elevatorButtonsControl, upperLiftPosition]);
+	}, [
+		numberOfLevels,
+		elevatorButtonsControl,
+		upperLiftPosition,
+		dispatch,
+		setLevels,
+	]);
 
 	const callElevator = floorButton => {
 		setTimeout(() => dispatch(buttonsAreOn(isMoving, true)), speed);
@@ -91,42 +92,35 @@ const NewBuilding = () => {
 
 	return (
 		<div className={container}>
-			<LiftStateContext.Provider value={{ liftState, levels }}>
-				<LiftDispatchContext.Provider value={dispatch}>
-					<div className={control_panel}>
-						<ControlPanel />
-					</div>
-					<div className={block} style={containerDynamicStyle}>
-						<Shaft
-							levels={levels}
-							callElevator={callElevator}
-							shaftDynamicStyle={shaftDynamicStyle}
-						/>
-						{lifts.map(lift => (
-							<Lift
-								insideLiftRequest={lift.handler}
-								styling={lift.styling}
-								key={lift.id}
-								liftDynamicStyle={liftDynamicStyle(
-									lift.position
-								)}
-								position={lift.position}
-								fontSizes={{
-									fontSize:
-										numberOfLevels > 11 && liftHeight < 9
-											? '.8rem'
-											: '1.5rem',
-								}}
-							/>
-						))}
-					</div>
-					<div className={state_panel}>
-						<InitialState />
-					</div>
-				</LiftDispatchContext.Provider>
-			</LiftStateContext.Provider>
+			<div className={control_panel}>
+				<ControlPanel />
+			</div>
+			<div className={block} style={containerDynamicStyle}>
+				<Shaft
+					callElevator={callElevator}
+					shaftDynamicStyle={shaftDynamicStyle}
+				/>
+				{lifts.map(lift => (
+					<Lift
+						insideLiftRequest={lift.handler}
+						styling={lift.styling}
+						key={lift.id}
+						liftDynamicStyle={liftDynamicStyle(lift.position)}
+						position={lift.position}
+						fontSizes={{
+							fontSize:
+								numberOfLevels > 11 && liftHeight < 9
+									? '.8rem'
+									: '1.5rem',
+						}}
+					/>
+				))}
+			</div>
+			<div className={state_panel}>
+				<InitialState />
+			</div>
 		</div>
 	);
 };
 
-export default NewBuilding;
+export default Building;
