@@ -4,13 +4,13 @@ import { BuildingContext } from '../../../Context';
 
 import { shaftButtons, movingLiftStyle } from './Shaft.module.scss';
 
-const Shaft = ({ callElevator, shaftDynamicStyle }) => {
-	const { liftState, levels } = useContext(BuildingContext);
-	const { disabled } = liftState;
+const Shaft = ({ callElevator, shaftDynamicStyle, levels }) => {
+	const { liftState } = useContext(BuildingContext);
+	const { disabled, numberOfLevels } = liftState;
 
 	return (
 		<div className={shaftButtons}>
-			{levels.map(floorButton => (
+			{levels(numberOfLevels).map(floorButton => (
 				<button
 					disabled={disabled}
 					key={floorButton}

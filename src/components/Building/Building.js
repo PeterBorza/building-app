@@ -6,16 +6,16 @@ import { BuildingContext } from '../../Context';
 
 import styles from './Building.module.scss';
 
+const { container, block, leftSide, rightSide, control_panel, state_panel } =
+	styles;
+
 const levelsArray = numberOfLevels =>
 	Array(numberOfLevels)
 		.fill()
 		.map((_, i) => i);
 
-const { container, block, leftSide, rightSide, control_panel, state_panel } =
-	styles;
-
 const Building = () => {
-	const { liftState, dispatch, setLevels } = useContext(BuildingContext);
+	const { liftState, dispatch } = useContext(BuildingContext);
 	const { runLiftA, runLiftB, isMoving, upperLiftPosition } = actionTypes;
 	const { elevatorButtonsControl, buttonsAreOn } = actions;
 
@@ -30,15 +30,8 @@ const Building = () => {
 	} = liftState;
 
 	useEffect(() => {
-		setLevels(levelsArray(numberOfLevels));
 		dispatch(elevatorButtonsControl(upperLiftPosition, numberOfLevels - 1));
-	}, [
-		numberOfLevels,
-		elevatorButtonsControl,
-		upperLiftPosition,
-		dispatch,
-		setLevels,
-	]);
+	}, [numberOfLevels, elevatorButtonsControl, upperLiftPosition, dispatch]);
 
 	const callElevator = floorButton => {
 		setTimeout(() => dispatch(buttonsAreOn(isMoving, true)), speed);
@@ -97,11 +90,13 @@ const Building = () => {
 			</div>
 			<div className={block} style={containerDynamicStyle}>
 				<Shaft
+					levels={levelsArray}
 					callElevator={callElevator}
 					shaftDynamicStyle={shaftDynamicStyle}
 				/>
 				{lifts.map(lift => (
 					<Lift
+						levels={levelsArray}
 						insideLiftRequest={lift.handler}
 						styling={lift.styling}
 						key={lift.id}

@@ -1,2 +1,1 @@
-export * from "../BusinessCardPage";
-export { default } from "./BusinessCard";
+export { default } from './BusinessCard';

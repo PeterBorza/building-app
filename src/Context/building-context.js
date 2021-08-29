@@ -1,4 +1,4 @@
-import { createContext, useState, useReducer } from 'react';
+import { createContext, useReducer } from 'react';
 
 import { reducers } from '../components/Building/LiftContext';
 
@@ -20,12 +20,8 @@ export const BuildingData = ({ children }) => {
 		initialState
 	);
 
-	const [levels, setLevels] = useState([]);
-
 	return (
-		<BuildingContext.Provider
-			value={{ initialState, liftState, dispatch, levels, setLevels }}
-		>
+		<BuildingContext.Provider value={{ initialState, liftState, dispatch }}>
 			{children}
 		</BuildingContext.Provider>
 	);

@@ -14,8 +14,10 @@ const Lift = ({
 	liftDynamicStyle,
 	position,
 	fontSizes,
+	levels,
 }) => {
-	const { liftState, dispatch, levels } = useContext(BuildingContext);
+	const { liftState, dispatch } = useContext(BuildingContext);
+	const { numberOfLevels } = liftState;
 	const { buttonsAreOn } = actions;
 	const { isMoving } = actionTypes;
 
@@ -24,7 +26,7 @@ const Lift = ({
 			className={classNames(liftStyle, styling)}
 			style={liftDynamicStyle}
 		>
-			{levels.map(liftButton => (
+			{levels(numberOfLevels).map(liftButton => (
 				<button
 					disabled={liftState.disabled}
 					key={liftButton}

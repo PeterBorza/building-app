@@ -4,8 +4,8 @@ import HomePage from '../components/HomePage';
 import Projects from '../components/Quiz/';
 import Building from '../components/Building';
 import BusinessCard from '../components/BusinessCardPage';
-import { Portfolio } from '../components/Portfolio';
-import Digits from '../components/Digits/Digits';
+import Portfolio from '../components/Portfolio';
+import Digits from '../components/Digits';
 
 export const LinkContext = createContext();
 

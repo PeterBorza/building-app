@@ -11,7 +11,8 @@ $bitDim: 40px;
 
 .landScapes {
 	@include landScape;
-	background: linear-gradient(to right, #4ac29a, #bdfff3);
+	background: rgb(27, 27, 27);
+	margin: 10vh auto;
 }
 
 .main {
@@ -26,8 +27,7 @@ $bitDim: 40px;
 	margin: auto;
 	width: 80%;
 	height: 100%;
-	display: grid;
-	place-items: center;
+	@include centered;
 	background-color: rgba(0, 0, 0, 0.4);
 	overflow: hidden;
 	&::before {
@@ -59,10 +59,7 @@ $bitDim: 40px;
 	position: relative;
 	width: 250px;
 	height: 500px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	flex-direction: column;
+	@include fBetween(column);
 	transform: skewX(-5deg);
 	&::after {
 		position: absolute;
