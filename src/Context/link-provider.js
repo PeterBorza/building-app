@@ -6,6 +6,7 @@ import Building from '../components/Building';
 import BusinessCard from '../components/BusinessCardPage';
 import Portfolio from '../components/Portfolio';
 import Digits from '../components/Digits';
+import Buttons from '../components/Buttons';
 
 export const LinkContext = createContext();
 
@@ -61,11 +62,18 @@ export const LinkContextProvider = ({ children }) => {
 			id: 7,
 		},
 		{
+			path: '/buttons',
+			exact: false,
+			component: Buttons,
+			title: 'Buttons',
+			id: 8,
+		},
+		{
 			path: '/fruitcard/:id',
 			component: Fruit,
 			title: '',
 			exact: false,
-			id: 8,
+			id: 9,
 		},
 	];
 

@@ -1,37 +1,41 @@
-import { useState, useEffect } from "react";
-import styles from "./HomePage.module.scss";
+import { useState, useEffect } from 'react';
+
+import { Neon } from '../utils';
+
+import styles from './HomePage.module.scss';
+
+const url = `https://api.chucknorris.io/jokes/random`;
 
 const HomePage = () => {
-    const [joke, setJoke] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+	const [joke, setJoke] = useState([]);
+	const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        setIsLoading(true);
-        const fetchData = async () => {
-            try {
-                const response = await fetch(
-                    `https://api.chucknorris.io/jokes/random`
-                );
-                const data = await response.json();
-                setJoke(data);
-            } catch (err) {
-                console.log("ERROR:", err.message);
-            }
-        };
-        isLoading && fetchData();
-    }, [isLoading]);
+	useEffect(() => {
+		setLoading(true);
+		const fetchData = async () => {
+			try {
+				const response = await fetch(url);
+				const data = await response.json();
+				setJoke(data);
+			} catch (err) {
+				console.log('ERROR:', err.message);
+			}
+		};
+		loading && fetchData();
+	}, [loading]);
 
-    return (
-        <div className={styles.homePage}>
-            <h1>Chuck Load o'Shea</h1>
-            <button onClick={() => setIsLoading(false)}>
-                Get a new Chuck Norris joke
-            </button>
-            <div className={styles.jokeBox}>
-                {isLoading ? <div>{joke.value}</div> : <div>No fetching</div>}
-            </div>
-        </div>
-    );
+	return (
+		<div className={styles.homePage}>
+			<h1>Chuck Load o'Shea</h1>
+			<Neon
+				handler={() => setLoading(!loading)}
+				title={'Get a new Chuck Norris joke'}
+			></Neon>
+			<div className={styles.jokeBox}>
+				{loading ? <div>{joke.value}</div> : <div>No fetching</div>}
+			</div>
+		</div>
+	);
 };
 
 export default HomePage;

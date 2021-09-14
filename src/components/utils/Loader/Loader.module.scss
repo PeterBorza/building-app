@@ -1,4 +1,6 @@
+@use '../../../css/mixins.scss' as *;
 @use '../../../css/variables.scss' as *;
+
 .loader_bg {
 	position: absolute;
 	min-width: 80px;
