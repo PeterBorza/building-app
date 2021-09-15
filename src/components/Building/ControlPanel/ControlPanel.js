@@ -39,9 +39,9 @@ const ControlPanel = () => {
 		<div className={controlPanel}>
 			{error ? (
 				<div className={errorPanel}>
-					<span>
+					<p>
 						You must provide a greater than 0 value to all fields!
-					</span>
+					</p>
 					<button
 						className={controlButton}
 						onClick={() => setError(false)}
