@@ -1,13 +1,19 @@
 import { useContext, useEffect } from 'react';
 
 import { actions, actionTypes } from './LiftContext';
+
 import { Lift, Shaft, InitialState, ControlPanel } from '../Building';
+
 import { BuildingContext } from '../../Context';
 
-import styles from './Building.module.scss';
-
-const { container, block, leftSide, rightSide, control_panel, state_panel } =
-	styles;
+import {
+	container,
+	block,
+	leftSide,
+	rightSide,
+	control_panel,
+	state_panel,
+} from './Building.module.scss';
 
 const levelsArray = numberOfLevels =>
 	Array(numberOfLevels)
@@ -64,7 +70,6 @@ const Building = () => {
 	};
 
 	const shaftDynamicStyle = position => ({
-		fontSize: numberOfLevels > 11 && liftHeight < 9 ? '.8rem' : '1.5rem',
 		color: positionFloor === position ? 'white' : 'rgb(24, 92, 45)',
 	});
 
@@ -86,33 +91,27 @@ const Building = () => {
 	return (
 		<div className={container}>
 			<div className={control_panel}>
-				<ControlPanel />
+				<Building.ControlPanel />
 			</div>
 			<div className={block} style={containerDynamicStyle}>
-				<Shaft
+				<Building.Shaft
 					levels={levelsArray}
 					callElevator={callElevator}
 					shaftDynamicStyle={shaftDynamicStyle}
 				/>
 				{lifts.map(lift => (
-					<Lift
+					<Building.Lift
 						levels={levelsArray}
 						insideLiftRequest={lift.handler}
 						styling={lift.styling}
 						key={lift.id}
 						liftDynamicStyle={liftDynamicStyle(lift.position)}
 						position={lift.position}
-						fontSizes={{
-							fontSize:
-								numberOfLevels > 11 && liftHeight < 9
-									? '.8rem'
-									: '1.5rem',
-						}}
 					/>
 				))}
 			</div>
 			<div className={state_panel}>
-				<InitialState />
+				<Building.InitialState />
 			</div>
 		</div>
 	);
