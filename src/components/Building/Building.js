@@ -2,8 +2,6 @@ import { useContext, useEffect } from 'react';
 
 import { actions, actionTypes } from './LiftContext';
 
-import { Lift, Shaft, InitialState, ControlPanel } from '../Building';
-
 import { BuildingContext } from '../../Context';
 
 import {
