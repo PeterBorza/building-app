@@ -18,6 +18,7 @@ $primaryColor: cadetblue;
 	display: grid;
 	place-items: center;
 	outline: 5px solid $primaryColor;
+	// font-size: clamp(0.6rem, 3vw, 1.5rem);
 }
 
 .control_panel {
@@ -33,29 +34,30 @@ $primaryColor: cadetblue;
 }
 
 .leftSide {
-	left: 1%;
+	left: 2%;
 	position: absolute;
 	bottom: 0;
 }
 .rightSide {
-	right: 1%;
+	right: 2%;
 	position: absolute;
 	bottom: 0;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 800px) {
 	.container {
-		@include fEven(column);
+		@include fEven(row);
+		.block {
+			width: 60%;
+		}
 	}
-	.block {
-		width: 60%;
-	}
-	.control_panel {
-		width: 80%;
-		margin: 2rem auto;
-	}
-	.state_panel {
-		width: 80%;
-		margin: 2rem auto;
+
+	@media only screen and (max-width: 450px) {
+		.container {
+			@include fEven(column);
+		}
+		.block {
+			width: 60%;
+		}
 	}
 }

@@ -2,18 +2,17 @@
 @use '../../../css/mixins.scss' as *;
 
 .shaftButtons {
-	width: 14%;
 	height: 100%;
 	@include fCenter(column-reverse);
 	button {
-		width: 100%;
+		width: 40px;
 		height: 100%;
 		margin: 1px;
 		outline: none;
 		border: none;
 		background-color: $btnColor;
+		// color: rgb(24, 92, 45);
 		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-		font-size: clamp(0.8rem, 2vw, 1.5rem);
 		border-radius: 2px;
 		@include centered;
 		transition: all 200ms ease;
@@ -27,10 +26,9 @@
 	}
 }
 .movingLiftStyle {
-	width: 15px;
-	height: 15px;
+	width: 1rem;
+	height: 1rem;
 	border-radius: 50%;
-	// background-color: rgba(202, 20, 20, 0.788);
 	animation: blink 150ms ease-in-out infinite alternate-reverse;
 	@keyframes blink {
 		0% {
@@ -42,7 +40,13 @@
 	}
 	background-color: red;
 	color: white;
-	border-radius: 50%;
 	padding: 2px 5px;
-	font-size: 0.8rem;
+	font-size: 0.6rem;
+}
+
+@media only screen and (max-width: 800px) {
+	.movingLiftStyle {
+		font-size: 0.4rem;
+		padding: 2px 8px;
+	}
 }

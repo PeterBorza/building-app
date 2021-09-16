@@ -126,20 +126,3 @@
 		box-shadow: 3px 3px 10px rgba(128, 128, 128, 0.8);
 	}
 }
-@mixin shadow {
-	transition: box-shadow 100ms ease;
-	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), -2px -2px 4px rgba(0, 0, 0, 0.3);
-	&:hover {
-		box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
-	}
-}
-
-@mixin shadow2 {
-	box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
-	// box-shadow: inset 0 5px 15px  rgba(0,0,0,0.5);
-	&:hover {
-		box-shadow: 0 15px 70px 0 rgba(0, 0, 0, 0.35);
-		transform: scale(1.001);
-		transition: transform 200ms, box-shadow 200ms;
-	}
-}

@@ -10,15 +10,15 @@ const Shaft = ({ callElevator, shaftDynamicStyle, levels }) => {
 
 	return (
 		<div className={shaftButtons}>
-			{levels(numberOfLevels).map(floorButton => (
+			{levels(numberOfLevels).map(position => (
 				<button
 					disabled={disabled}
-					key={floorButton}
-					onClick={() => callElevator(floorButton)}
-					style={shaftDynamicStyle(floorButton)}
+					key={position}
+					onClick={() => callElevator(position)}
+					style={shaftDynamicStyle(position)}
 				>
 					{!disabled ? (
-						floorButton
+						position
 					) : (
 						<div className={movingLiftStyle}></div>
 					)}

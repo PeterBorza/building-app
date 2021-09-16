@@ -1,47 +1,30 @@
-@use '../../../css/variables.scss' as *;
-@use '../../../css/mixins.scss' as *;
-
 $primaryColor: cadetblue;
+// $liftHeight: 12vh;
 
 .liftStyle {
-	width: 40%;
-	border-radius: 5px;
-	// @include flexWrap;
-	@include fEven(row);
-	// @include fEven(column-reverse);
-	// @include lineUp(2, 0.1rem);
-	background-color: darken($primaryColor, 10%);
-	button {
-		// flex: 1 1 1rem;
-		outline: none;
-		border: none;
-		font-size: clamp(0.6rem, 2vw, 1.3rem);
-		padding: 1px 2px;
-		// width: 1.5rem;
-		// height: 1.5rem;
-		background-color: darken($primaryColor, 30%);
-		color: $primaryColor;
-		border-radius: clamp(5%, 2% + 1vw, 15%);
-		font-family: monospace;
-		&:hover {
-			color: lighten($primaryColor, 30%);
-		}
-		&.active {
-			color: white;
-		}
-	}
-}
+  width: 42%;
+  // height: $liftHeight;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 
-@media only screen and (max-width: 700px) {
-	.liftStyle {
-		font-size: 0.4rem;
-		padding: 2px 8px;
-		// @include fEven(column);
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		flex-direction: column;
-		overflow: hidden;
-		overflow-y: scroll;
-	}
+  background-color: darken($primaryColor, 10%);
+  // transition: transform 1000ms ease-in-out;
+  button {
+    outline: none;
+    width: 1.8rem;
+    height: 1.8rem;
+    border: none;
+    background-color: darken($primaryColor, 30%);
+    color: $primaryColor;
+    border-radius: 50%;
+    font-family: monospace;
+    &:hover {
+      color: lighten($primaryColor, 30%);
+    }
+    &.active {
+      color: white;
+    }
+  }
 }
