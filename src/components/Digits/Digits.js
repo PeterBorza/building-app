@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import { DigitContext } from '../../Context';
 
@@ -7,6 +7,11 @@ import classNames from 'classnames';
 
 const Digits = () => {
 	const [digits, keyPressed, setKeyPressed] = useContext(DigitContext);
+	useEffect(() => {
+		window.addEventListener('keydown', e => {
+			setKeyPressed(e.key);
+		});
+	}, []);
 
 	const selectedNumber = key =>
 		digits
@@ -23,11 +28,13 @@ const Digits = () => {
 				))
 			);
 
-	const getKey = e => setKeyPressed(e.key);
-
 	return (
 		<div className={styles.digitContainer}>
-			<div className={styles.container} tabIndex={0} onKeyDown={getKey}>
+			<div
+				className={styles.container}
+				tabIndex={0}
+				title={'start typing '}
+			>
 				<div className={styles.digit_box}>
 					{selectedNumber(keyPressed)}
 				</div>
