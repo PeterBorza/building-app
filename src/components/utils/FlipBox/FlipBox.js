@@ -1,9 +1,8 @@
 import { useState } from 'react';
+
 import classNames from 'classnames';
 
-import styles from './FlipBox.module.scss';
-
-const { flip_box, inner, front, back, turn } = styles;
+import { flip_box, inner, front, back, turn } from './FlipBox.module.scss';
 
 const FlipBox = ({ children, child }) => {
 	const [flip, setFlip] = useState(false);
