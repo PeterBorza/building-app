@@ -1,15 +1,16 @@
 @use "../../../css/variables.scss" as *;
 @use "../../../css/mixins.scss" as *;
 
-$dist: 0.2rem;
+$defaultMargin: 0.2rem;
 
 .controlPanel {
 	@include fEven(column);
-	padding-left: $dist;
+	padding-left: $defaultMargin;
 	width: $w;
 	height: $w;
 	border-radius: $border;
-	background-color: rgba(255, 255, 255, 0.15);
+	background-color: lighten($secondaryColor, 80%);
+	transition: background-color 100ms ease-in-out;
 	h2 {
 		color: rgb(216, 206, 206);
 	}
@@ -23,21 +24,21 @@ $dist: 0.2rem;
 			width: 25%;
 			outline: none;
 			border: none;
-			margin: $dist;
-			padding: $dist;
+			margin: $defaultMargin;
+			padding: $defaultMargin;
 			background-color: $secondaryColor;
 		}
 	}
 }
 
 .controlButton {
-	margin: $dist;
+	margin: $defaultMargin;
 	padding: 6px;
 	outline: none;
 	border: none;
 	background-color: rgb(12, 66, 68);
 	color: white;
-	border-radius: $dist;
+	border-radius: $defaultMargin;
 	&:hover {
 		cursor: pointer;
 		color: grey;
