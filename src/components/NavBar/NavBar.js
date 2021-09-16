@@ -8,7 +8,7 @@ import Peter from '../../images/Peter.JPG';
 import styles from './NavBar.module.scss';
 
 const NavBar = () => {
-	const { navBar, logo, navLinks, navList, navColumn } = styles;
+	const { navBar, logo, navLinks, linkContainer, linkWrapper } = styles;
 	const links = useContext(LinkContext);
 
 	return (
@@ -17,13 +17,13 @@ const NavBar = () => {
 				<h3>MY LOGO</h3>
 				<img src={Peter} alt='Peter' />
 			</div>
-			<ul className={navList}>
+			<ul className={linkContainer}>
 				{links
-					.filter(item => item.id !== 9)
+					.filter((_, i) => i !== links.length - 1)
 					.map(({ title, path, id }) => (
-						<li className={navColumn} key={id}>
+						<li className={linkWrapper} key={id}>
 							<Link className={navLinks} to={`${path}`}>
-								<h3>{title}</h3>
+								{title}
 							</Link>
 						</li>
 					))}
