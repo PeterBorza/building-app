@@ -21,7 +21,7 @@ const useFetch = url => {
 			}
 		};
 		isLoading && setTimeout(() => getData(), 1000);
-	}, [url]);
+	}, [url, isLoading]);
 	return [data, isLoading];
 };
 
