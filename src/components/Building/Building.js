@@ -3,6 +3,8 @@ import { useContext, useEffect } from 'react';
 import { actions, actionTypes } from './LiftContext';
 import { BuildingContext } from '../../Context';
 
+import { Lift, Shaft, ControlPanel, InitialState } from '../Building';
+
 import styles from './Building.module.scss';
 
 const { container, block, leftSide, rightSide, control_panel, state_panel } =
