@@ -25,14 +25,3 @@ $primaryColor: cadetblue;
 		}
 	}
 }
-
-@media only screen and (max-width: 800px) {
-	.liftStyle {
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		flex-direction: column;
-		overflow: hidden;
-		overflow-y: scroll;
-	}
-}
