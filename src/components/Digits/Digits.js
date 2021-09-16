@@ -26,7 +26,7 @@ const Digits = () => {
 	const getKey = e => setKeyPressed(e.key);
 
 	return (
-		<div className={styles.landScapes}>
+		<div className={styles.digitContainer}>
 			<div className={styles.container} tabIndex={0} onKeyDown={getKey}>
 				<div className={styles.digit_box}>
 					{selectedNumber(keyPressed)}

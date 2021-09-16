@@ -9,7 +9,7 @@ $bitDim: 40px;
 	height: $bitDim;
 }
 
-.landScapes {
+.digitContainer {
 	@include landScape;
 	background: rgb(27, 27, 27);
 	margin: 10vh auto;
@@ -64,11 +64,11 @@ $bitDim: 40px;
 	&::after {
 		position: absolute;
 		content: '';
-		width: 40px;
-		height: 40px;
+		width: 2.5rem;
+		height: 2.5rem;
 		border-radius: 50%;
 		background-color: rgba(255, 0, 0, 0.623);
-		bottom: 0;
+		bottom: 4%;
 		right: -20%;
 		filter: blur(3px);
 		animation: blink 500ms ease-in-out infinite alternate-reverse;
