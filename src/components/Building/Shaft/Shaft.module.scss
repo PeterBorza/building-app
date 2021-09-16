@@ -27,8 +27,8 @@
 	}
 }
 .movingLiftStyle {
-	width: 1rem;
-	height: 1rem;
+	width: clamp(0.3rem, 2vw, 1rem);
+	height: clamp(0.3rem, 2vw, 1rem);
 	border-radius: 50%;
 	animation: blink 150ms ease-in-out infinite alternate-reverse;
 	@keyframes blink {
@@ -40,14 +40,4 @@
 		}
 	}
 	background-color: red;
-	color: white;
-	padding: 2px 5px;
-	font-size: 0.6rem;
-}
-
-@media only screen and (max-width: 800px) {
-	.movingLiftStyle {
-		font-size: 0.4rem;
-		padding: 2px 8px;
-	}
 }
