@@ -13,7 +13,7 @@ const InitialState = () => {
 
 	return (
 		<div className={control}>
-			<h2>initialState</h2>
+			<h2>Stats</h2>
 			<p>
 				Number of levels: <span>{numberOfLevels}</span>
 			</p>
