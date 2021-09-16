@@ -11,7 +11,7 @@ const Digits = () => {
 		window.addEventListener('keydown', e => {
 			setKeyPressed(e.key);
 		});
-	}, []);
+	}, [setKeyPressed]);
 
 	const selectedNumber = key =>
 		digits
