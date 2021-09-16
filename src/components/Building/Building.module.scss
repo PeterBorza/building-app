@@ -1,8 +1,6 @@
 @use '../../css/variables.scss' as *;
 @use '../../css/mixins.scss' as *;
 
-$primaryColor: cadetblue;
-
 .container {
 	width: 100%;
 	min-width: 100%;
@@ -10,7 +8,8 @@ $primaryColor: cadetblue;
 	@include fBetween(row);
 	flex-wrap: wrap;
 	padding: 1rem;
-	background-color: darkkhaki;
+	// background-color: darkkhaki;
+	background-image: url('../../images/city800.jpg');
 }
 
 .block {

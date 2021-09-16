@@ -8,8 +8,14 @@ $dist: 0.2rem;
 	padding-left: $dist;
 	width: $w;
 	height: $w;
-	@include shadow2;
 	border-radius: $border;
+	background-color: rgba(255, 255, 255, 0.15);
+	h2 {
+		color: rgb(216, 206, 206);
+	}
+	&:hover {
+		background-color: $tertiaryColor;
+	}
 	form {
 		@include fCenter(column);
 		font-size: clamp(0.7rem, 2vw, 1.5rem);
@@ -19,6 +25,7 @@ $dist: 0.2rem;
 			border: none;
 			margin: $dist;
 			padding: $dist;
+			background-color: $secondaryColor;
 		}
 	}
 }
