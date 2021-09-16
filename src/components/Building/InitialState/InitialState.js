@@ -9,7 +9,7 @@ const InitialState = () => {
 	const { control } = styles;
 	const { numberOfLevels, liftHeight, liftWidth, speed, disabled } =
 		liftState;
-	const isButtonDisabled = { color: disabled ? 'red' : 'rgb(19, 83, 83)' };
+	const isButtonDisabled = { color: disabled && 'red' };
 
 	return (
 		<div className={control}>

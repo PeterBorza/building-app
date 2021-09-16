@@ -5,13 +5,19 @@ $clamp: clamp(0.7rem, 2vw, 1.5rem);
 
 .control {
 	@include fEven(column);
-	@include shadow2;
 	width: $w;
 	height: $w;
 	border-radius: $border;
 	padding: 0 0.4rem;
+	background-color: lighten($secondaryColor, 80%);
+	transition: background-color 100ms ease-in-out;
+	h2 {
+		color: rgb(216, 206, 206);
+	}
+	&:hover {
+		background-color: $tertiaryColor;
+	}
 	p {
-		color: white;
 		box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
 		border-radius: $border / 2;
 		font-size: $clamp;
@@ -21,10 +27,10 @@ $clamp: clamp(0.7rem, 2vw, 1.5rem);
 		cursor: pointer;
 		padding: 0 0.4rem;
 		&:hover {
-			color: rgba(238, 223, 223, 0.712);
+			color: rgba(238, 223, 223, 0.9);
 		}
 		span {
-			color: rgb(19, 83, 83);
+			color: darken($primaryColor, 40%);
 			font-size: $clamp;
 		}
 	}

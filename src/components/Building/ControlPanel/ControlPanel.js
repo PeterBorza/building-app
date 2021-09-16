@@ -50,52 +50,55 @@ const ControlPanel = () => {
 					</button>
 				</div>
 			) : (
-				<form onSubmit={submitNewData}>
-					Levels:
-					<input
-						type='text'
-						value={NUMBER_OF_LEVELS}
-						onChange={e =>
-							setValues({
-								...values,
-								NUMBER_OF_LEVELS: e.target.value,
-							})
-						}
-					/>
-					Lift height:
-					<input
-						type='text'
-						value={LIFT_HEIGHT}
-						onChange={e =>
-							setValues({
-								...values,
-								LIFT_HEIGHT: e.target.value,
-							})
-						}
-					/>
-					Block width:
-					<input
-						type='text'
-						value={BUILDING_WIDTH}
-						onChange={e =>
-							setValues({
-								...values,
-								BUILDING_WIDTH: e.target.value,
-							})
-						}
-					/>
-					Speed
-					<input
-						type='text'
-						value={SPEED}
-						onChange={e =>
-							setValues({ ...values, SPEED: e.target.value })
-						}
-					/>
-					<button className={controlButton} type='submit'>
-						Submit
-					</button>
-				</form>
+				<>
+					<h2>Controls</h2>
+					<form onSubmit={submitNewData}>
+						Levels:
+						<input
+							type='text'
+							value={NUMBER_OF_LEVELS}
+							onChange={e =>
+								setValues({
+									...values,
+									NUMBER_OF_LEVELS: e.target.value,
+								})
+							}
+						/>
+						Lift height:
+						<input
+							type='text'
+							value={LIFT_HEIGHT}
+							onChange={e =>
+								setValues({
+									...values,
+									LIFT_HEIGHT: e.target.value,
+								})
+							}
+						/>
+						Block width:
+						<input
+							type='text'
+							value={BUILDING_WIDTH}
+							onChange={e =>
+								setValues({
+									...values,
+									BUILDING_WIDTH: e.target.value,
+								})
+							}
+						/>
+						Speed
+						<input
+							type='text'
+							value={SPEED}
+							onChange={e =>
+								setValues({ ...values, SPEED: e.target.value })
+							}
+						/>
+						<button className={controlButton} type='submit'>
+							Submit
+						</button>
+					</form>
+				</>
 			)}
 		</div>
 	);
