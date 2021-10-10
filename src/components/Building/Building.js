@@ -11,7 +11,11 @@ import {
 	rightSide,
 	control_panel,
 	state_panel,
+	active,
+	inactive,
 } from './Building.module.scss';
+
+import classNames from 'classnames';
 
 const levelsArray = numberOfLevels =>
 	Array(numberOfLevels)
@@ -32,6 +36,11 @@ const Building = () => {
 		positionB,
 		positionFloor,
 	} = liftState;
+
+	const isActiveStyle = position =>
+		classNames(inactive, {
+			[active]: positionFloor === position,
+		});
 
 	useEffect(() => {
 		dispatch(elevatorButtonsControl(upperLiftPosition, numberOfLevels - 1));
@@ -67,10 +76,6 @@ const Building = () => {
 		width: `${liftWidth}vw`,
 	};
 
-	const shaftDynamicStyle = position => ({
-		color: positionFloor === position ? 'white' : 'rgb(24, 92, 45)',
-	});
-
 	const lifts = [
 		{
 			id: 0,
@@ -95,7 +100,7 @@ const Building = () => {
 				<Building.Shaft
 					levels={levelsArray}
 					callElevator={callElevator}
-					shaftDynamicStyle={shaftDynamicStyle}
+					shaftDynamicStyle={isActiveStyle}
 				/>
 				{lifts.map(lift => (
 					<Building.Lift

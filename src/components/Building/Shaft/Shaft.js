@@ -15,7 +15,7 @@ const Shaft = ({ callElevator, shaftDynamicStyle, levels }) => {
 					disabled={disabled}
 					key={position}
 					onClick={() => callElevator(position)}
-					style={shaftDynamicStyle(position)}
+					className={shaftDynamicStyle(position)}
 				>
 					{!disabled ? (
 						position
