@@ -32,7 +32,7 @@ const HomePage = () => {
 				title={'Get a new Chuck Norris joke'}
 			></Neon>
 			<div className={styles.jokeBox}>
-				{loading ? <div>{joke.value}</div> : <div>No fetching</div>}
+				{loading ? joke.value : 'No fetching'}
 			</div>
 		</div>
 	);

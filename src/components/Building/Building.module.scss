@@ -42,6 +42,14 @@
 	bottom: 0;
 }
 
+.inactive {
+	color: rgb(24, 92, 45);
+}
+
+.active {
+	color: white;
+}
+
 @media only screen and (max-width: 450px) {
 	.container {
 		@include fEven(column);

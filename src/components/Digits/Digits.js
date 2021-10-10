@@ -13,20 +13,20 @@ const Digits = () => {
 		});
 	}, [setKeyPressed]);
 
+	const typedKey = key => digits.filter(digit => String(digit.key) === key);
+
 	const selectedNumber = key =>
-		digits
-			.filter(digit => String(digit.key) === key)
-			.map(num =>
-				num.stripes.map(stripe => (
-					<div
-						key={`digit-${stripe}`}
-						className={classNames(
-							styles.position_dimension,
-							styles[`box${stripe}`]
-						)}
-					></div>
-				))
-			);
+		typedKey(key).map(num =>
+			num.stripes.map(stripe => (
+				<div
+					key={`digit-${stripe}`}
+					className={classNames(
+						styles.position_dimension,
+						styles[`box${stripe}`]
+					)}
+				></div>
+			))
+		);
 
 	return (
 		<div className={styles.digitContainer}>
