@@ -1,0 +1,42 @@
+.rubikContainer {
+	// position: relative;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(14, 13, 13, 0.904);
+	perspective: 1000px;
+	display: grid;
+	place-items: center;
+}
+
+.rubikWrapper {
+	position: relative;
+	width: 300px;
+	height: 300px;
+	transform-style: preserve-3d;
+	transition: transform 1200ms ease;
+}
+
+.rubikSide {
+	position: absolute;
+	background-color: transparent;
+	border: 1px solid white;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	border-radius: 10px;
+}
+
+.sidePart {
+	position: absolute;
+	border: 1px solid white;
+	border-radius: 3px;
+	box-shadow: 0 0 5px transparent;
+	transform-origin: center;
+}
+
+.buttonsWrapper {
+	button {
+		margin: 5px;
+	}
+}
