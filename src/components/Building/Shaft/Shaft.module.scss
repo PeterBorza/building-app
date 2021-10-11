@@ -27,8 +27,11 @@
 	}
 }
 .movingLiftStyle {
-	width: clamp(0.3rem, 2vw, 1rem);
-	height: clamp(0.3rem, 2vw, 1rem);
+	// width: clamp(0.3rem, 2vw, 1rem);
+	// height: clamp(0.3rem, 2vw, 1rem);
+	width: 40%;
+	aspect-ratio: 1;
+	flex: 0 1 auto;
 	border-radius: 50%;
 	animation: blink 150ms ease-in-out infinite alternate-reverse;
 	@keyframes blink {

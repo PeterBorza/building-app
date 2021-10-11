@@ -122,10 +122,6 @@
 @mixin landScape {
 	width: 90%;
 	height: 80vh;
-	padding: 0.5rem;
-	border: 3px solid rgba(128, 128, 128, 0.5);
-	border-radius: 5px;
-	margin-top: 10vh;
 	@include centered();
 	background: rgba(128, 128, 128, 0.2);
 	box-shadow: 1px 1px 4px rgba(128, 128, 128, 0.5);

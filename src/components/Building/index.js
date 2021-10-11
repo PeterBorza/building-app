@@ -10,3 +10,5 @@ export default Object.assign(Building, {
 	Lift,
 	Shaft,
 });
+
+export { ControlPanel, InitialState, Lift, Shaft };

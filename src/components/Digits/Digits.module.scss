@@ -1,9 +1,10 @@
-@use "../../css/variables.scss" as *;
-@use "../../css/mixins.scss" as *;
+@use '../../css/variables.scss' as *;
+@use '../../css/mixins.scss' as *;
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
 
 $distance: 35px;
 $bitDim: 40px;
+
 @mixin bitDimension {
 	width: 180px;
 	height: $bitDim;
@@ -15,21 +16,13 @@ $bitDim: 40px;
 	margin: 10vh auto;
 }
 
-.main {
-	padding-top: 8vh;
-	width: 100%;
-	height: 100vh;
-	overflow: hidden;
-}
-
 .container {
 	position: relative;
 	margin: auto;
-	width: 80%;
-	height: 100%;
-	@include centered;
+	width: 100%;
+	@include fCenter(row);
 	background-color: rgba(0, 0, 0, 0.4);
-	overflow: hidden;
+	// overflow: hidden;
 	&::before {
 		position: absolute;
 		content: '';
@@ -44,6 +37,10 @@ $bitDim: 40px;
 		filter: blur(1px) grayscale(50%);
 		transform: translateX(-5%);
 		animation: hoverOver 12s linear infinite alternate-reverse;
+		&:focus {
+			border: none;
+			outline: none;
+		}
 	}
 	@keyframes hoverOver {
 		0% {
@@ -59,7 +56,6 @@ $bitDim: 40px;
 	position: relative;
 	width: 250px;
 	height: 500px;
-	@include fBetween(column);
 	transform: skewX(-5deg);
 	&::after {
 		position: absolute;
@@ -68,7 +64,7 @@ $bitDim: 40px;
 		height: 2.5rem;
 		border-radius: 50%;
 		background-color: rgba(255, 0, 0, 0.623);
-		bottom: 4%;
+		bottom: 2%;
 		right: -20%;
 		filter: blur(3px);
 		animation: blink 500ms ease-in-out infinite alternate-reverse;
@@ -92,7 +88,8 @@ $bitDim: 40px;
 .position_dimension {
 	position: absolute;
 	width: $bitDim;
-	height: 200px;
+	// height: 200px;
+	height: 40%;
 }
 
 .box0 {
@@ -102,7 +99,9 @@ $bitDim: 40px;
 }
 
 .box1 {
-	top: 225px;
+	// top: 225px;
+	top: 50%;
+	transform: translateY(-50%);
 	left: $distance;
 	@include bitDimension();
 }

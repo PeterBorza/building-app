@@ -4,6 +4,8 @@ import { actions, actionTypes } from './LiftContext';
 
 import { BuildingContext } from '../../Context';
 
+import { Lift, Shaft, InitialState, ControlPanel } from '../Building';
+
 import {
 	container,
 	block,
@@ -94,16 +96,16 @@ const Building = () => {
 	return (
 		<div className={container}>
 			<div className={control_panel}>
-				<Building.ControlPanel />
+				<ControlPanel />
 			</div>
 			<div className={block} style={containerDynamicStyle}>
-				<Building.Shaft
+				<Shaft
 					levels={levelsArray}
 					callElevator={callElevator}
 					shaftDynamicStyle={isActiveStyle}
 				/>
 				{lifts.map(lift => (
-					<Building.Lift
+					<Lift
 						levels={levelsArray}
 						insideLiftRequest={lift.handler}
 						styling={lift.styling}
@@ -114,7 +116,7 @@ const Building = () => {
 				))}
 			</div>
 			<div className={state_panel}>
-				<Building.InitialState />
+				<InitialState />
 			</div>
 		</div>
 	);
