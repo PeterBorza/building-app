@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App/App';
 import { LinkContextProvider, DigitData, BuildingData } from './Context';
 import { FruitDataProvider } from './components/FruitCard/fruit-context';
+import { RubikContextProvider } from './components/Rubik/rubik-context';
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -10,7 +11,9 @@ ReactDOM.render(
 			<DigitData>
 				<FruitDataProvider>
 					<LinkContextProvider>
-						<App />
+						<RubikContextProvider>
+							<App />
+						</RubikContextProvider>
 					</LinkContextProvider>
 				</FruitDataProvider>
 			</DigitData>
