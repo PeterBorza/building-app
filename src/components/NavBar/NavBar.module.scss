@@ -113,3 +113,15 @@
 		top: 2vh;
 	}
 }
+@media screen and (max-width: 740px) {
+	.linkContainer {
+		overflow: hidden;
+		overflow-x: scroll;
+	}
+	.logo {
+		display: none;
+	}
+	.navBar {
+		top: 2vh;
+	}
+}
