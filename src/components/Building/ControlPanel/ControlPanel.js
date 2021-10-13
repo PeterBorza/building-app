@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
 
 import { actions } from '../LiftContext';
 import { BuildingContext } from '../../../Context';
@@ -12,28 +12,51 @@ const ControlPanel = () => {
 	const { liftHeight, liftWidth, numberOfLevels, speed } = liftState;
 	const [error, setError] = useState(false);
 	const [values, setValues] = useState({
-		LIFT_HEIGHT: liftHeight,
-		BUILDING_WIDTH: liftWidth,
-		NUMBER_OF_LEVELS: numberOfLevels,
-		SPEED: speed,
+		stateLiftHeight: liftHeight,
+		stateLiftWidth: liftWidth,
+		stateNumberOfLevels: numberOfLevels,
+		stateSpeed: speed,
 	});
-	const { LIFT_HEIGHT, BUILDING_WIDTH, NUMBER_OF_LEVELS, SPEED } = values;
 
-	const submitNewData = e => {
-		e.preventDefault();
+	const { stateLiftHeight, stateLiftWidth, stateNumberOfLevels, stateSpeed } =
+		values;
 
-		Number(LIFT_HEIGHT) === 0 ||
-		Number(BUILDING_WIDTH) === 0 ||
-		Number(NUMBER_OF_LEVELS) === 0 ||
-		Number(SPEED) === 0
-			? setError(true)
-			: dispatch(fieldValues('numberOfLevels', NUMBER_OF_LEVELS));
-		dispatch(fieldValues('liftHeight', LIFT_HEIGHT));
-		dispatch(fieldValues('liftWidth', BUILDING_WIDTH));
-		dispatch(fieldValues('speed', SPEED));
+	const emptyInput = item => Number(item) === 0;
+	const onChangeHandler = e => {
+		const value = e.target.value;
+		setValues({
+			...values,
+			[e.target.name]: value,
+		});
 	};
 
-	// *************************************************************
+	const submitNewData = useCallback(
+		e => {
+			e.preventDefault();
+
+			if (
+				emptyInput(stateLiftHeight) ||
+				emptyInput(stateLiftWidth) ||
+				emptyInput(stateNumberOfLevels) ||
+				emptyInput(stateSpeed)
+			) {
+				setError(true);
+				return;
+			}
+			dispatch(fieldValues('numberOfLevels', stateNumberOfLevels));
+			dispatch(fieldValues('liftHeight', stateLiftHeight));
+			dispatch(fieldValues('liftWidth', stateLiftWidth));
+			dispatch(fieldValues('speed', stateSpeed));
+		},
+		[
+			stateLiftHeight,
+			stateLiftWidth,
+			stateNumberOfLevels,
+			stateSpeed,
+			dispatch,
+			fieldValues,
+		]
+	);
 
 	return (
 		<div className={controlPanel}>
@@ -53,47 +76,42 @@ const ControlPanel = () => {
 				<>
 					<h2>Controls</h2>
 					<form onSubmit={submitNewData}>
-						Levels:
-						<input
-							type='text'
-							value={NUMBER_OF_LEVELS}
-							onChange={e =>
-								setValues({
-									...values,
-									NUMBER_OF_LEVELS: e.target.value,
-								})
-							}
-						/>
-						Lift height:
-						<input
-							type='text'
-							value={LIFT_HEIGHT}
-							onChange={e =>
-								setValues({
-									...values,
-									LIFT_HEIGHT: e.target.value,
-								})
-							}
-						/>
-						Block width:
-						<input
-							type='text'
-							value={BUILDING_WIDTH}
-							onChange={e =>
-								setValues({
-									...values,
-									BUILDING_WIDTH: e.target.value,
-								})
-							}
-						/>
-						Speed
-						<input
-							type='text'
-							value={SPEED}
-							onChange={e =>
-								setValues({ ...values, SPEED: e.target.value })
-							}
-						/>
+						<label>
+							Levels:
+							<input
+								type='text'
+								value={stateNumberOfLevels}
+								name='stateNumberOfLevels'
+								onChange={onChangeHandler}
+							/>
+						</label>
+						<label>
+							Lift height:
+							<input
+								type='text'
+								value={stateLiftHeight}
+								name='stateLiftHeight'
+								onChange={onChangeHandler}
+							/>
+						</label>
+						<label>
+							Block width:
+							<input
+								type='text'
+								value={stateLiftWidth}
+								name='stateLiftWidth'
+								onChange={onChangeHandler}
+							/>
+						</label>
+						<label>
+							Speed
+							<input
+								type='text'
+								value={stateSpeed}
+								name='stateSpeed'
+								onChange={onChangeHandler}
+							/>
+						</label>
 						<button className={controlButton} type='submit'>
 							Submit
 						</button>
