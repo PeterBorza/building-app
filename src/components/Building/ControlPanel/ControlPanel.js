@@ -1,5 +1,7 @@
 import { useCallback, useContext, useState } from 'react';
 
+import LabeledInput from './LabeledInput';
+
 import { actions } from '../LiftContext';
 import { BuildingContext } from '../../../Context';
 import styles from './ControlPanel.module.scss';
@@ -12,9 +14,9 @@ const ControlPanel = () => {
 	const { liftHeight, liftWidth, numberOfLevels, speed } = liftState;
 	const [error, setError] = useState(false);
 	const [values, setValues] = useState({
+		stateNumberOfLevels: numberOfLevels,
 		stateLiftHeight: liftHeight,
 		stateLiftWidth: liftWidth,
-		stateNumberOfLevels: numberOfLevels,
 		stateSpeed: speed,
 	});
 
@@ -22,6 +24,7 @@ const ControlPanel = () => {
 		values;
 
 	const emptyInput = item => Number(item) === 0;
+
 	const onChangeHandler = e => {
 		const value = e.target.value;
 		setValues({
@@ -76,42 +79,30 @@ const ControlPanel = () => {
 				<>
 					<h2>Controls</h2>
 					<form onSubmit={submitNewData}>
-						<label>
-							Levels:
-							<input
-								type='text'
-								value={stateNumberOfLevels}
-								name='stateNumberOfLevels'
-								onChange={onChangeHandler}
-							/>
-						</label>
-						<label>
-							Lift height:
-							<input
-								type='text'
-								value={stateLiftHeight}
-								name='stateLiftHeight'
-								onChange={onChangeHandler}
-							/>
-						</label>
-						<label>
-							Block width:
-							<input
-								type='text'
-								value={stateLiftWidth}
-								name='stateLiftWidth'
-								onChange={onChangeHandler}
-							/>
-						</label>
-						<label>
-							Speed
-							<input
-								type='text'
-								value={stateSpeed}
-								name='stateSpeed'
-								onChange={onChangeHandler}
-							/>
-						</label>
+						<LabeledInput
+							defaultValue={stateNumberOfLevels}
+							name='stateNumberOfLevels'
+							handler={onChangeHandler}
+							labelText='Levels:'
+						/>
+						<LabeledInput
+							defaultValue={stateLiftHeight}
+							name='stateLiftHeight'
+							handler={onChangeHandler}
+							labelText='Lift Height:'
+						/>
+						<LabeledInput
+							defaultValue={stateLiftWidth}
+							name='stateLiftWidth'
+							handler={onChangeHandler}
+							labelText='Block Width:'
+						/>
+						<LabeledInput
+							defaultValue={stateSpeed}
+							name='stateSpeed'
+							handler={onChangeHandler}
+							labelText='Speed:'
+						/>
 						<button className={controlButton} type='submit'>
 							Submit
 						</button>
