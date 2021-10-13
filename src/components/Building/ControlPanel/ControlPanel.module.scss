@@ -1,11 +1,10 @@
-@use "../../../css/variables.scss" as *;
-@use "../../../css/mixins.scss" as *;
+@use '../../../css/variables.scss' as *;
+@use '../../../css/mixins.scss' as *;
 
 $defaultMargin: 0.2rem;
 
 .controlPanel {
 	@include fEven(column);
-	padding-left: $defaultMargin;
 	width: $w;
 	height: $w;
 	border-radius: $border;
@@ -18,21 +17,33 @@ $defaultMargin: 0.2rem;
 		background-color: $tertiaryColor;
 	}
 	form {
-		@include fCenter(column);
-		font-size: clamp(0.7rem, 2vw, 1.5rem);
-		input {
-			width: 25%;
-			outline: none;
-			border: none;
+		display: flex;
+		flex-direction: column;
+		label {
+			font-size: clamp(0.7rem, 2vw, 1.5rem);
+			display: flex;
+			padding: 0 0.3rem;
 			margin: $defaultMargin;
-			padding: $defaultMargin;
-			background-color: $secondaryColor;
+			input {
+				width: 20%;
+				margin-left: auto;
+				outline: none;
+				border: none;
+				padding: $defaultMargin;
+				background-color: $secondaryColor;
+			}
 		}
 	}
 }
 
 .controlButton {
-	margin: $defaultMargin;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block;
+	width: 30%;
+	margin: $defaultMargin * 4;
+	margin-left: auto;
 	padding: 6px;
 	outline: none;
 	border: none;
