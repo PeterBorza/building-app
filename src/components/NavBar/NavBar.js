@@ -3,8 +3,6 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { LinkContext } from '../../Context';
 
-import Peter from '../../images/Peter.JPG';
-
 import styles from './NavBar.module.scss';
 
 const NavBar = () => {
@@ -15,7 +13,6 @@ const NavBar = () => {
 		<div className={navBar}>
 			<div className={logo}>
 				<h3>MY LOGO</h3>
-				<img src={Peter} alt='Peter' />
 			</div>
 			<ul className={linkContainer}>
 				{links

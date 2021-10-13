@@ -20,9 +20,10 @@ $bitDim: 40px;
 	position: relative;
 	margin: auto;
 	width: 100%;
+	height: 100%;
 	@include fCenter(row);
 	background-color: rgba(0, 0, 0, 0.4);
-	// overflow: hidden;
+	overflow: hidden;
 	&::before {
 		position: absolute;
 		content: '';

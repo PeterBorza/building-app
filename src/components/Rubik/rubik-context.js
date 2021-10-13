@@ -25,7 +25,7 @@ export const RubikContextProvider = ({ children }) => {
 			'846C5B',
 		],
 		images: [apple, orange, lemon, apricot, pear, mango, bananas, grapes],
-		size: '150px',
+		size: '125px',
 		transforms: function () {
 			return [
 				`translateZ(-${this.size})`,
