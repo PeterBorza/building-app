@@ -7,7 +7,7 @@ import BusinessCard from '../components/BusinessCardPage';
 import Portfolio from '../components/Portfolio';
 import Digits from '../components/Digits';
 import Buttons from '../components/Buttons';
-import Rubik from '../components/Rubik';
+import { RubikWrapper } from '../components/Rubik';
 
 export const LinkContext = createContext();
 
@@ -72,7 +72,7 @@ export const LinkContextProvider = ({ children }) => {
 		{
 			path: '/rubik',
 			exact: false,
-			component: Rubik,
+			component: RubikWrapper,
 			title: 'Rubik',
 			id: 9,
 		},
