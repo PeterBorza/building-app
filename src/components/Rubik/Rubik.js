@@ -3,7 +3,7 @@ import styles from './Rubik.module.scss';
 import { RubikContext } from './rubik-context';
 import { GlowButton } from '../../components/utils';
 
-const Rubik = () => {
+export const Rubik = () => {
 	const rubikData = useContext(RubikContext);
 	const wrapper = useRef(null);
 	const [moveX, setMoveX] = useState('');
@@ -41,7 +41,7 @@ const Rubik = () => {
 		));
 
 	return (
-		<div className={styles.rubikContainer}>
+		<>
 			<div className={styles.buttonsWrapper}>
 				<GlowButton handler={handleUpDown} title='right' />
 				<GlowButton handler={handleLeftRight} title='up' />
@@ -50,8 +50,6 @@ const Rubik = () => {
 			<div ref={wrapper} className={styles.rubikWrapper}>
 				{sides}
 			</div>
-		</div>
+		</>
 	);
 };
-
-export default Rubik;
