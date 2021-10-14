@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useCallback, useContext } from 'react';
 
 import { actions, actionTypes } from '../LiftContext';
 import { BuildingContext } from '../../../Context';
@@ -21,28 +21,34 @@ const Lift = ({
 	const { buttonsAreOn } = actions;
 	const { isMoving } = actionTypes;
 
+	const liftClassNames = classNames(liftStyle, styling);
+	const buttonClassNames = liftButton =>
+		classNames({
+			[active]: liftButton === position,
+		});
+
+	const controls = useCallback(
+		liftButton => {
+			dispatch({
+				type: insideLiftRequest,
+				value: liftButton,
+			});
+			setTimeout(
+				() => dispatch(buttonsAreOn(isMoving, true)),
+				liftState.speed
+			);
+		},
+		[insideLiftRequest, buttonsAreOn, dispatch, isMoving, liftState.speed]
+	);
+
 	return (
-		<div
-			className={classNames(liftStyle, styling)}
-			style={liftDynamicStyle}
-		>
+		<div className={liftClassNames} style={liftDynamicStyle}>
 			{levels(numberOfLevels).map(liftButton => (
 				<button
 					disabled={liftState.disabled}
 					key={liftButton}
-					className={classNames({
-						[active]: liftButton === position,
-					})}
-					onClick={() => {
-						dispatch({
-							type: insideLiftRequest,
-							value: liftButton,
-						});
-						setTimeout(
-							() => dispatch(buttonsAreOn(isMoving, true)),
-							liftState.speed
-						);
-					}}
+					className={buttonClassNames(liftButton)}
+					onClick={() => controls(liftButton)}
 					style={fontSizes}
 				>
 					{liftButton}
