@@ -23,7 +23,7 @@ const ControlPanel = () => {
 	const { stateLiftHeight, stateLiftWidth, stateNumberOfLevels, stateSpeed } =
 		values;
 
-	const emptyInput = item => Number(item) === 0;
+	const emptyInput = item => +item === 0;
 
 	const onChangeHandler = e => {
 		const value = e.target.value;

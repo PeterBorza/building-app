@@ -6,17 +6,19 @@ $primaryColor: cadetblue;
 .liftStyle {
 	width: 40%;
 	border-radius: 5px;
-	@include fEven(row);
+	display: flex;
+	flex-direction: column-reverse;
 	background-color: darken($primaryColor, 10%);
+	overflow-y: scroll;
+	&::-webkit-scrollbar {
+		display: none;
+	}
 	button {
 		outline: none;
 		border: none;
-		// flex: 0 1 auto;
-		font-size: clamp(0.6rem, 1.2vw, 10rem);
-		padding: clamp(1px, 0.5px + 1.5vw, 4px);
+		font-size: 2.1rem;
 		background-color: darken($primaryColor, 30%);
 		color: $primaryColor;
-		border-radius: clamp(5%, 2% + 1vw, 15%);
 		font-family: monospace;
 		&:hover {
 			color: lighten($primaryColor, 30%);

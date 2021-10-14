@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useCallback, useContext, useEffect } from 'react';
 
 import { actions, actionTypes } from './LiftContext';
 
@@ -48,22 +48,35 @@ const Building = () => {
 		dispatch(elevatorButtonsControl(upperLiftPosition, numberOfLevels - 1));
 	}, [numberOfLevels, elevatorButtonsControl, upperLiftPosition, dispatch]);
 
-	const callElevator = floorButton => {
-		setTimeout(() => dispatch(buttonsAreOn(isMoving, true)), speed);
+	const callElevator = useCallback(
+		floorButton => {
+			setTimeout(() => dispatch(buttonsAreOn(isMoving, true)), speed);
 
-		const difA = Math.abs(positionA - floorButton);
-		const difB = Math.abs(positionB - floorButton);
-		const runLift = liftName =>
-			dispatch(elevatorButtonsControl(liftName, floorButton));
+			const difA = Math.abs(positionA - floorButton);
+			const difB = Math.abs(positionB - floorButton);
+			const runLift = liftName =>
+				dispatch(elevatorButtonsControl(liftName, floorButton));
 
-		difA < difB
-			? runLift(runLiftA)
-			: difA > difB
-			? runLift(runLiftB)
-			: positionA <= positionB
-			? runLift(runLiftA)
-			: runLift(runLiftB);
-	};
+			difA < difB
+				? runLift(runLiftA)
+				: difA > difB
+				? runLift(runLiftB)
+				: positionA <= positionB
+				? runLift(runLiftA)
+				: runLift(runLiftB);
+		},
+		[
+			positionA,
+			positionB,
+			buttonsAreOn,
+			dispatch,
+			elevatorButtonsControl,
+			isMoving,
+			runLiftA,
+			runLiftB,
+			speed,
+		]
+	);
 
 	// DATA ****************************************************
 
