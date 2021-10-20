@@ -1,5 +1,5 @@
-@use '../../css/variables.scss' as *;
-@use '../../css/mixins.scss' as *;
+@use "../../css/variables.scss" as *;
+@use "../../css/mixins.scss" as *;
 
 .container {
 	width: 100%;
@@ -8,7 +8,7 @@
 	@include fBetween(row);
 	flex-wrap: wrap;
 	padding: 1rem;
-	background-image: url('../../images/city800.jpg');
+	background-image: url("../../images/city800.jpg");
 }
 
 .block {
@@ -41,12 +41,10 @@
 	bottom: 0;
 }
 
-.inactive {
-	color: rgb(24, 92, 45);
-}
-
-.active {
-	color: white;
+@for $i from 1 through 100 {
+	.width-#{$i} {
+		width: #{$i}vw;
+	}
 }
 
 @media only screen and (max-width: 450px) {

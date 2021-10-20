@@ -1,30 +1,27 @@
-import { useCallback, useContext } from 'react';
+import { useCallback, useContext } from "react";
 
-import { actions, actionTypes } from '../LiftContext';
-import { BuildingContext } from '../../../Context';
+import { actions, actionTypes } from "../LiftContext";
+import { BuildingContext } from "../../../Context";
 
-import styles from './Lift.module.scss';
-import classNames from 'classnames';
+import styles from "./Lift.module.scss";
+import classNames from "classnames";
 
-const { liftStyle, active } = styles;
-
-const Lift = ({
-	insideLiftRequest,
-	styling,
-	liftDynamicStyle,
-	position,
-	fontSizes,
-	levels,
-}) => {
+const Lift = ({ insideLiftRequest, styling, position, levels }) => {
 	const { liftState, dispatch } = useContext(BuildingContext);
-	const { numberOfLevels } = liftState;
+	const { speed, liftHeight } = liftState;
 	const { buttonsAreOn } = actions;
 	const { isMoving } = actionTypes;
 
-	const liftClassNames = classNames(liftStyle, styling);
+	const liftClassNames = classNames(
+		styles.liftStyle,
+		styling,
+		styles[`height-${liftHeight}`],
+		styles[`transition-${speed}`],
+		styles[`transform-${position}`]
+	);
 	const buttonClassNames = liftButton =>
 		classNames({
-			[active]: liftButton === position,
+			[styles.active]: liftButton === position,
 		});
 
 	const controls = useCallback(
@@ -42,14 +39,13 @@ const Lift = ({
 	);
 
 	return (
-		<div className={liftClassNames} style={liftDynamicStyle}>
-			{levels(numberOfLevels).map(liftButton => (
+		<div className={liftClassNames}>
+			{levels.map(liftButton => (
 				<button
 					disabled={liftState.disabled}
 					key={liftButton}
 					className={buttonClassNames(liftButton)}
 					onClick={() => controls(liftButton)}
-					style={fontSizes}
 				>
 					{liftButton}
 				</button>

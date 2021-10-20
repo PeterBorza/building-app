@@ -1,5 +1,5 @@
-@use '../../../css/variables.scss' as *;
-@use '../../../css/mixins.scss' as *;
+@use "../../../css/variables.scss" as *;
+@use "../../../css/mixins.scss" as *;
 
 $primaryColor: cadetblue;
 
@@ -26,5 +26,23 @@ $primaryColor: cadetblue;
 		&.active {
 			color: white;
 		}
+	}
+}
+
+@for $i from 0 through 12 {
+	.transform-#{$i} {
+		transform: translateY(-$i * 100%);
+	}
+}
+
+@for $i from 0 through 10000 {
+	.transition-#{$i} {
+		transition: transform #{$i}ms ease-in-out;
+	}
+}
+
+@for $i from 1 through 20 {
+	.height-#{$i} {
+		height: #{$i}vh;
 	}
 }
