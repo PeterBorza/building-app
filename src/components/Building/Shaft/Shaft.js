@@ -1,26 +1,33 @@
-import { useContext } from 'react';
+import { useContext } from "react";
 
-import { BuildingContext } from '../../../Context';
+import { BuildingContext } from "../../../Context";
 
-import { shaftButtons, movingLiftStyle } from './Shaft.module.scss';
+import styles from "./Shaft.module.scss";
 
-const Shaft = ({ callElevator, shaftDynamicStyle, levels }) => {
+import classNames from "classnames";
+
+const Shaft = ({ callElevator, levels }) => {
 	const { liftState } = useContext(BuildingContext);
-	const { disabled, numberOfLevels } = liftState;
+	const { disabled, positionFloor } = liftState;
+
+	const isActiveStyle = pos =>
+		classNames(styles.inactive, {
+			[styles.active]: positionFloor === pos,
+		});
 
 	return (
-		<div className={shaftButtons}>
-			{levels(numberOfLevels).map(position => (
+		<div className={styles.shaftButtons}>
+			{levels.map(position => (
 				<button
 					disabled={disabled}
 					key={position}
 					onClick={() => callElevator(position)}
-					className={shaftDynamicStyle(position)}
+					className={isActiveStyle(position)}
 				>
 					{!disabled ? (
 						position
 					) : (
-						<div className={movingLiftStyle}></div>
+						<div className={styles.movingLiftStyle}></div>
 					)}
 				</button>
 			))}

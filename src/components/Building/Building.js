@@ -1,28 +1,11 @@
-import { useCallback, useContext, useEffect } from 'react';
+import { useCallback, useContext, useEffect } from "react";
+import { Lift, Shaft, InitialState, ControlPanel } from "../Building";
 
-import { actions, actionTypes } from './LiftContext';
+import { actions, actionTypes } from "./LiftContext";
+import { BuildingContext } from "../../Context";
 
-import { BuildingContext } from '../../Context';
-
-import { Lift, Shaft, InitialState, ControlPanel } from '../Building';
-
-import {
-	container,
-	block,
-	leftSide,
-	rightSide,
-	control_panel,
-	state_panel,
-	active,
-	inactive,
-} from './Building.module.scss';
-
-import classNames from 'classnames';
-
-const levelsArray = numberOfLevels =>
-	Array(numberOfLevels)
-		.fill()
-		.map((_, i) => i);
+import styles from "./Building.module.scss";
+import classNames from "classnames";
 
 const Building = () => {
 	const { liftState, dispatch } = useContext(BuildingContext);
@@ -36,13 +19,16 @@ const Building = () => {
 		liftWidth,
 		positionA,
 		positionB,
-		positionFloor,
 	} = liftState;
 
-	const isActiveStyle = position =>
-		classNames(inactive, {
-			[active]: positionFloor === position,
-		});
+	const levelsArray = Array(numberOfLevels)
+		.fill()
+		.map((_, i) => i);
+
+	const blockClassNames = classNames(
+		styles.block,
+		styles[`width-${liftWidth}`]
+	);
 
 	useEffect(() => {
 		dispatch(elevatorButtonsControl(upperLiftPosition, numberOfLevels - 1));
@@ -54,16 +40,16 @@ const Building = () => {
 
 			const difA = Math.abs(positionA - floorButton);
 			const difB = Math.abs(positionB - floorButton);
-			const runLift = liftName =>
+			const executeCommand = liftName =>
 				dispatch(elevatorButtonsControl(liftName, floorButton));
 
 			difA < difB
-				? runLift(runLiftA)
+				? executeCommand(runLiftA)
 				: difA > difB
-				? runLift(runLiftB)
+				? executeCommand(runLiftB)
 				: positionA <= positionB
-				? runLift(runLiftA)
-				: runLift(runLiftB);
+				? executeCommand(runLiftA)
+				: executeCommand(runLiftB);
 		},
 		[
 			positionA,
@@ -78,57 +64,32 @@ const Building = () => {
 		]
 	);
 
-	// DATA ****************************************************
-
-	const liftDynamicStyle = position => ({
-		height: `${liftHeight}vh`,
-		transition: `transform ${speed}ms ease-in-out`,
-		transform: `translateY(${-position * 100}%)`,
-	});
-
-	const containerDynamicStyle = {
-		height: `${liftHeight * numberOfLevels}vh`,
-		width: `${liftWidth}vw`,
-	};
-
-	const lifts = [
-		{
-			id: 0,
-			position: positionA,
-			styling: leftSide,
-			handler: runLiftA,
-		},
-		{
-			id: 1,
-			position: positionB,
-			styling: rightSide,
-			handler: runLiftB,
-		},
-	];
-
 	return (
-		<div className={container}>
-			<div className={control_panel}>
+		<div className={styles.container}>
+			<div className={styles.control_panel}>
 				<ControlPanel />
 			</div>
-			<div className={block} style={containerDynamicStyle}>
-				<Shaft
+			<div
+				className={blockClassNames}
+				style={{ height: `${liftHeight * numberOfLevels}vh` }}
+			>
+				<Lift
 					levels={levelsArray}
-					callElevator={callElevator}
-					shaftDynamicStyle={isActiveStyle}
+					insideLiftRequest={runLiftA}
+					styling={styles.leftSide}
+					position={positionA}
 				/>
-				{lifts.map(lift => (
-					<Lift
-						levels={levelsArray}
-						insideLiftRequest={lift.handler}
-						styling={lift.styling}
-						key={lift.id}
-						liftDynamicStyle={liftDynamicStyle(lift.position)}
-						position={lift.position}
-					/>
-				))}
+
+				<Shaft levels={levelsArray} callElevator={callElevator} />
+
+				<Lift
+					levels={levelsArray}
+					insideLiftRequest={runLiftB}
+					styling={styles.rightSide}
+					position={positionB}
+				/>
 			</div>
-			<div className={state_panel}>
+			<div className={styles.state_panel}>
 				<InitialState />
 			</div>
 		</div>

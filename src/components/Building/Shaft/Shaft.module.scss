@@ -1,5 +1,5 @@
-@use '../../../css/variables.scss' as *;
-@use '../../../css/mixins.scss' as *;
+@use "../../../css/variables.scss" as *;
+@use "../../../css/mixins.scss" as *;
 
 .shaftButtons {
 	width: 14%;
@@ -12,7 +12,7 @@
 		outline: none;
 		border: none;
 		background-color: $btnColor;
-		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 		font-size: clamp(0.8rem, 2vw, 1.5rem);
 		border-radius: 2px;
 		@include centered;
@@ -44,4 +44,12 @@
 		}
 	}
 	background-color: red;
+}
+
+.inactive {
+	color: rgb(24, 92, 45);
+}
+
+.active {
+	color: white;
 }
