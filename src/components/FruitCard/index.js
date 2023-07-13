@@ -1,3 +1,2 @@
-import FruitCard from "./FruitCard";
-export default FruitCard;
+export { default as FruitCard } from "./FruitCard";
 export { Fruit } from "./Fruit";

@@ -1,59 +1,64 @@
-@use '../../../css/variables.scss' as *;
-@use '../../../css/mixins.scss' as *;
+@use "css" as *;
 
 $defaultMargin: 0.2rem;
 
 .controlPanel {
-	@include fEven(column);
-	width: $w;
-	height: $w;
-	border-radius: $border;
-	background-color: lighten($secondaryColor, 80%);
-	transition: background-color 100ms ease-in-out;
-	h2 {
-		color: rgb(216, 206, 206);
-	}
-	&:hover {
-		background-color: $tertiaryColor;
-	}
-	form {
-		display: flex;
-		flex-direction: column;
-	}
+  @include fEven(column);
+  width: $w;
+  height: $w;
+  border-radius: $border;
+  background-color: lighten($secondaryColor, 80%);
+  transition: background-color 100ms ease-in-out;
+
+  h2 {
+    color: rgb(216, 206, 206);
+  }
+
+  &:hover {
+    background-color: $tertiaryColor;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .controlButton {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	display: block;
-	width: 30%;
-	margin: $defaultMargin * 4;
-	margin-left: auto;
-	padding: 6px;
-	outline: none;
-	border: none;
-	background-color: rgb(12, 66, 68);
-	color: white;
-	border-radius: $defaultMargin;
-	&:hover {
-		cursor: pointer;
-		color: grey;
-	}
-	&:active {
-		transform: scale(0.97);
-	}
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  width: 30%;
+  margin: $defaultMargin * 4;
+  margin-left: auto;
+  padding: 6px;
+  outline: none;
+  border: none;
+  background-color: rgb(12, 66, 68);
+  color: white;
+  border-radius: $defaultMargin;
+
+  &:hover {
+    cursor: pointer;
+    color: grey;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
 }
 
 .errorPanel {
-	width: $w;
-	height: $w;
-	@include fAround(column);
-	span {
-		text-align: center;
-		color: crimson;
-		font-weight: bold;
-		font-size: clamp(0.8rem, 2.5vw, 1.2rem);
-		letter-spacing: 1px;
-	}
+  width: $w;
+  height: $w;
+  @include fAround(column);
+
+  span {
+    text-align: center;
+    color: crimson;
+    font-weight: bold;
+    font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+    letter-spacing: 1px;
+  }
 }

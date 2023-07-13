@@ -1,9 +1,8 @@
-@use "../../css/variables.scss" as *;
-@use "../../css/mixins.scss" as *;
+@use "css" as *;
 
 .buttons_style {
-	width: 100%;
-	height: 100vh;
-	@include fAround(row);
-	background: rgb(36, 35, 35);
+  width: 100%;
+  height: 100vh;
+  @include fAround(row);
+  background: rgb(36, 35, 35);
 }

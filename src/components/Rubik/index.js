@@ -1,4 +1,2 @@
-import { default as RubikWrapper } from './RubikWrapper';
-import { Rubik } from './Rubik';
-
-export { RubikWrapper, Rubik };
+export { default as RubikWrapper } from "./RubikWrapper";
+export { Rubik } from "./Rubik";

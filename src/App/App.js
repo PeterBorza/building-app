@@ -1,18 +1,17 @@
-import './App.scss';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from "react-router-dom";
 
-import NavBar from '../components/NavBar/NavBar';
-import Main from '../components/Main';
+import "./App.scss";
 
-function App() {
-	return (
-		<div className='App'>
-			<Router>
-				<NavBar />
-				<Main />
-			</Router>
-		</div>
-	);
-}
+import NavBar from "components/NavBar";
+import Main from "components/Main";
+
+const App = () => (
+  <div className="App">
+    <Router>
+      <NavBar />
+      <Main />
+    </Router>
+  </div>
+);
 
 export default App;

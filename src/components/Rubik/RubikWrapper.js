@@ -1,15 +1,16 @@
-import { Rubik } from '../Rubik/Rubik';
-import styles from './Rubik.module.scss';
-import { RubikContextProvider } from './rubik-context';
+import { Rubik } from "./Rubik";
+import { RubikContextProvider } from "./rubik-context";
+
+import styles from "./Rubik.module.scss";
 
 const RubikWrapper = () => {
-	return (
-		<div className={styles.rubikContainer}>
-			<RubikContextProvider>
-				<Rubik />
-			</RubikContextProvider>
-		</div>
-	);
+  return (
+    <RubikContextProvider>
+      <div className={styles.rubikContainer}>
+        <Rubik />
+      </div>
+    </RubikContextProvider>
+  );
 };
 
 export default RubikWrapper;

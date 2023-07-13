@@ -1,56 +1,61 @@
-@use '../../../css/variables.scss' as *;
-@use '../../../css/mixins.scss' as *;
+@use "css" as *;
 
 .businessCard {
-	box-shadow: $shadow;
-	padding: 0.3rem;
-	min-height: 40vh;
-	@include fEven(column);
-	border-radius: 10px;
-	user-select: none;
-	transition: transform 250ms;
+  box-shadow: $shadow;
+  padding: 0.3rem;
+  min-height: 40vh;
+  @include fEven(column);
+  border-radius: 10px;
+  user-select: none;
+  transition: transform 250ms;
 
-	.imgStyle {
-		max-width: 50%;
-		margin: 0 auto;
-	}
-	ul {
-		width: 100%;
-		box-shadow: $shadow;
-		padding: 3px;
-		border-radius: 10px;
-		transition: all 100ms ease-in-out;
-		&:hover {
-			transform: translateZ(10px);
-		}
-	}
+  .imgStyle {
+    max-width: 50%;
+    margin: 0 auto;
+  }
 
-	span {
-		color: rgb(39, 94, 107);
-		text-transform: uppercase;
-		word-wrap: break-word;
-	}
+  ul {
+    width: 100%;
+    box-shadow: $shadow;
+    padding: 3px;
+    border-radius: 10px;
+    transition: all 100ms ease-in-out;
+
+    &:hover {
+      transform: translateZ(10px);
+    }
+  }
+
+  span {
+    color: rgb(39, 94, 107);
+    text-transform: uppercase;
+    word-wrap: break-word;
+  }
 }
+
 @media only screen and (max-width: 800px) {
-	.businessCard {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-wrap: wrap;
-		p {
-			font-size: 0.5rem;
-		}
-		span {
-			font-size: 1.2rem;
-		}
-		ul {
-			// height: 60%;
-			width: 40%;
-			@include centered;
-		}
-		.imgStyle {
-			max-width: 35%;
-			margin: 0 auto;
-		}
-	}
+  .businessCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    p {
+      font-size: 0.5rem;
+    }
+
+    span {
+      font-size: 1.2rem;
+    }
+
+    ul {
+      width: 40%;
+      @include centered;
+    }
+
+    .imgStyle {
+      max-width: 35%;
+      margin: 0 auto;
+    }
+  }
 }

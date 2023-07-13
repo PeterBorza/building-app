@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import classNames from "classnames";
-
 import styles from "./FlipBox.module.scss";
 
 const { flip_box, inner, front, back, turn } = styles;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import styles from "./Portfolio.module.scss";
 
-import Peter1 from "../../images/Peter1-400.jpg";
+import Peter1 from "images/Peter1-400.jpg";
 
 import classNames from "classnames";
 
@@ -34,7 +34,7 @@ const Portfolio = () => {
           <span className={animate ? __showText : undefined}>{data.title}</span>
         </h1>
         <div className={title}>
-          <img src={data.img} alt="" />
+          <img src={require("images/Peter1-400.jpg")} alt="" />
           <h2>{data.skills}</h2>
           <p>{data.skillList}</p>
         </div>
