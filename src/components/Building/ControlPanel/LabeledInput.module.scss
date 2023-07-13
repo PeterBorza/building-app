@@ -1,20 +1,19 @@
-@use '../../../css/variables.scss' as *;
-@use '../../../css/mixins.scss' as *;
+@use "css" as *;
 
 $defaultMargin: 0.2rem;
 
 .labelWrapper {
-	font-size: clamp(0.7rem, 2vw, 1.5rem);
-	display: flex;
-	padding: 0 0.3rem;
-	margin: $defaultMargin;
+  font-size: clamp(0.7rem, 2vw, 1.5rem);
+  display: flex;
+  padding: 0 0.3rem;
+  margin: $defaultMargin;
 }
 
 .inputStyle {
-	width: 20%;
-	margin-left: auto;
-	outline: none;
-	border: none;
-	padding: $defaultMargin;
-	background-color: $secondaryColor;
+  width: 20%;
+  margin-left: auto;
+  outline: none;
+  border: none;
+  padding: $defaultMargin;
+  background-color: $secondaryColor;
 }

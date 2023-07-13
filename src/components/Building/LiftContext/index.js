@@ -1,5 +1,3 @@
-import * as actions from '../LiftContext/lift-actions';
-import * as actionTypes from '../LiftContext/lift-actionTypes';
-import * as reducers from '../LiftContext/lift-reducer';
-
-export { actions, actionTypes, reducers };
+export * as actions from "./lift-actions";
+export * as actionTypes from "./lift-actionTypes";
+export * as reducers from "./lift-reducer";

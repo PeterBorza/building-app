@@ -1,127 +1,131 @@
-@use '../../css/variables.scss' as *;
-@use '../../css/mixins.scss' as *;
+@use "css" as *;
 
 .logo {
-	position: relative;
-	height: 100%;
-	width: 20%;
-	background-color: rgba(26, 59, 87, 0.2);
-	display: grid;
-	place-items: center;
-	transition: transform 300ms ease;
-	overflow: hidden;
-	text-align: center;
+  position: relative;
+  height: 100%;
+  width: 20%;
+  background-color: rgba(26, 59, 87, 0.2);
+  display: grid;
+  place-items: center;
+  transition: transform 300ms ease;
+  overflow: hidden;
+  text-align: center;
 
-	h3 {
-		width: 100%;
-		color: white;
-		font-size: clamp(0.6rem, 3vw, 1.2rem);
-		font-weight: bold;
-		letter-spacing: 3px;
-	}
+  h3 {
+    width: 100%;
+    color: white;
+    font-size: clamp(0.6rem, 3vw, 1.2rem);
+    font-weight: bold;
+    letter-spacing: 3px;
+  }
 
-	&:after {
-		position: absolute;
-		content: '';
-		width: 40%;
-		height: 2px;
-		left: 20%;
-		background-color: red;
-		animation: logoAnimationHor 2000ms infinite alternate-reverse linear;
-	}
+  &:after {
+    position: absolute;
+    content: "";
+    width: 40%;
+    height: 2px;
+    left: 20%;
+    background-color: red;
+    animation: logoAnimationHor 2000ms infinite alternate-reverse linear;
+  }
 
-	@keyframes logoAnimationHor {
-		0% {
-			transform: translateY(-400%);
-		}
-		100% {
-			transform: translateY(400%);
-		}
-	}
+  @keyframes logoAnimationHor {
+    0% {
+      transform: translateY(-400%);
+    }
+    100% {
+      transform: translateY(400%);
+    }
+  }
 
-	&:before {
-		position: absolute;
-		content: '';
-		width: 2px;
-		height: 75%;
-		top: 10%;
-		background-color: orange;
-		animation: logoAnimationVer 4000ms infinite alternate-reverse linear;
-	}
+  &:before {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 75%;
+    top: 10%;
+    background-color: orange;
+    animation: logoAnimationVer 4000ms infinite alternate-reverse linear;
+  }
 
-	@keyframes logoAnimationVer {
-		0% {
-			transform: translateX(-3000%) rotateZ(45deg);
-		}
-		100% {
-			transform: translateX(1000%) rotateZ(-45deg);
-		}
-	}
+  @keyframes logoAnimationVer {
+    0% {
+      transform: translateX(-3000%) rotateZ(45deg);
+    }
+    100% {
+      transform: translateX(1000%) rotateZ(-45deg);
+    }
+  }
 }
 
 // *******************************************
 .navBar {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 6vh;
-	background-color: $navBarBgColor;
-	display: flex;
-	z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6vh;
+  background-color: $navBarBgColor;
+  display: flex;
+  z-index: 1;
 }
 
 .linkContainer {
-	display: flex;
-	margin-left: auto;
-	&:last-child {
-		margin-right: 0.5rem;
-	}
+  display: flex;
+  margin-left: auto;
+  &:last-child {
+    margin-right: 0.5rem;
+  }
 }
 
 .linkWrapper {
-	list-style: none;
-	align-self: center;
-	margin-left: 0.5rem;
+  list-style: none;
+  align-self: center;
+  margin-left: 0.5rem;
 }
 
 .navLinks {
-	width: 100%;
-	text-decoration: none;
-	text-align: center;
-	border-left: 1px solid white;
-	padding-left: 2px;
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-	font-weight: bold;
-	font-size: clamp(0.6rem, 0.6rem + 1.5vw, 1.3rem);
-	color: white;
-	letter-spacing: 1px;
-	&:hover {
-		border-left: 1px solid red;
-	}
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+  border-left: 1px solid white;
+  padding-left: 2px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: bold;
+  font-size: clamp(0.6rem, 0.6rem + 1.5vw, 1.3rem);
+  color: white;
+  letter-spacing: 1px;
+  &:hover {
+    border-left: 1px solid red;
+  }
 }
 
 @media screen and (max-width: 740px) {
-	.linkContainer {
-		overflow: hidden;
-		overflow-x: scroll;
-	}
-	.logo {
-		display: none;
-	}
-	.navBar {
-		top: 2vh;
-	}
+  .linkContainer {
+    overflow: hidden;
+    overflow-x: scroll;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .navBar {
+    top: 2vh;
+  }
 }
+
 @media screen and (max-width: 740px) {
-	.linkContainer {
-		overflow: hidden;
-		overflow-x: scroll;
-	}
-	.logo {
-		display: none;
-	}
-	.navBar {
-		top: 2vh;
-	}
+  .linkContainer {
+    overflow: hidden;
+    overflow-x: scroll;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .navBar {
+    top: 2vh;
+  }
 }

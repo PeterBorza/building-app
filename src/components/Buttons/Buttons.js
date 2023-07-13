@@ -1,16 +1,14 @@
-import styles from "./Buttons.module.scss";
-
 import { FlipBox, GlowButton, Neon, SimpleDrop } from "../utils";
 
+import styles from "./Buttons.module.scss";
+
 const Buttons = () => {
-  const buttonGroup = {
-    neonBtn: <Neon></Neon>,
-    glowBtn: <GlowButton></GlowButton>,
-  };
   return (
     <div className={styles.buttons_style}>
       <SimpleDrop>
-        <FlipBox child={buttonGroup.neonBtn}>{buttonGroup.glowBtn}</FlipBox>
+        <FlipBox child={<Neon />}>
+          <GlowButton />
+        </FlipBox>
       </SimpleDrop>
     </div>
   );

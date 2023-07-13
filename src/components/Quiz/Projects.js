@@ -1,15 +1,14 @@
-import styles from "./Projects.module.scss";
-import { QuizContextProvider } from "../../Context";
-import QuizBox from "./QuizBox/QuizBox";
+import { QuizContextProvider } from "Context";
+import QuizBox from "./QuizBox";
 
-const Projects = () => {
-  return (
+import styles from "./Projects.module.scss";
+
+const Projects = () => (
+  <QuizContextProvider>
     <div className={styles.container}>
-      <QuizContextProvider>
-        <QuizBox />
-      </QuizContextProvider>
+      <QuizBox />
     </div>
-  );
-};
+  </QuizContextProvider>
+);
 
 export default Projects;
